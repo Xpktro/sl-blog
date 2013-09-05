@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: LSL2 | Tiaeld Tolsen y el (meta)mundo.]]></title>
-  <link href="http://lsl.xpktro.com//github/blog/categories/lsl2/atom.xml" rel="self"/>
-  <link href="http://lsl.xpktro.com//github/"/>
-  <updated>2013-09-05T00:26:43-05:00</updated>
-  <id>http://lsl.xpktro.com//github/</id>
+  <link href="http://lsl.xpktro.com//blog/categories/lsl2/atom.xml" rel="self"/>
+  <link href="http://lsl.xpktro.com//"/>
+  <updated>2013-09-05T00:39:35-05:00</updated>
+  <id>http://lsl.xpktro.com//</id>
   <author>
     <name><![CDATA[Tiaeld Tolsen]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Introduccion y Requisitos]]></title>
-    <link href="http://lsl.xpktro.com//github/blog/2013/09/03/introduccion-y-requisitos/"/>
+    <link href="http://lsl.xpktro.com//blog/2013/09/03/introduccion-y-requisitos/"/>
     <updated>2013-09-03T22:48:00-05:00</updated>
-    <id>http://lsl.xpktro.com//github/blog/2013/09/03/introduccion-y-requisitos</id>
+    <id>http://lsl.xpktro.com//blog/2013/09/03/introduccion-y-requisitos</id>
     <content type="html"><![CDATA[<p>Que el título no les asuste, en realidad no hay mucho por saber de anticipado antes de poder llevar y concluir el curso de LSL con éxito.</p>
 
 <h3>Nota Introductoria</h3>
