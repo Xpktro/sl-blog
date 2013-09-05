@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Introducción | Tiaeld Tolsen y el (meta)mundo.]]></title>
+  <link href="http://lsl.xpktro.com//github/blog/categories/introduccion/atom.xml" rel="self"/>
+  <link href="http://lsl.xpktro.com//github/"/>
+  <updated>2013-09-05T00:26:43-05:00</updated>
+  <id>http://lsl.xpktro.com//github/</id>
+  <author>
+    <name><![CDATA[Tiaeld Tolsen]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[¡Hola, Mundo!]]></title>
+    <link href="http://lsl.xpktro.com//github/blog/2013/08/30/hola/"/>
+    <updated>2013-08-30T00:50:00-05:00</updated>
+    <id>http://lsl.xpktro.com//github/blog/2013/08/30/hola</id>
+    <content type="html"><![CDATA[<p>Mi nombre dentro de Second Life es <a href="https://my.secondlife.com/tiaeld.tolsen">Tiaeld Tolsen</a> (aunque también tengo una vida bastante tangible en los <a href="http://www.xpktro.com">planos de la realidad</a>). Tengo varios años como residente, y algunos otros dedicándome profesionalmente al <em>Scripting</em>, esa (hasta ahora) oscura ciencia con la que se puede manejar de todo con todo tipo de aplicaciones.</p>
+
+<p>Inicialmente, este espacio ha sido concebido para albergar una serie de entregas que, en su conjunto, ¡terminarán siendo <strong>un auténtico curso de LSL2</strong>! aunque es bastante posible que la profundidad/detalle de las entregas no sea el suficiente como para abarcar la inmensidad de las funciones disponibles para los <em>scripters</em> actualmente, mi intención es proveer de una vez por todas, a todos los hispanohablantes interesados, del material necesario para que puedan empezar y desenvolverse en este ineresantísimo mundo.</p>
+
+<p>Los términos y condiciones del curso, serán puestos en otra sección, quedando esta como una simple bienvenida/breve introducción a este humilde sitio. Como siempre, todo comentario y/o sugerencia habrá de ser bien recibido; y si el tiempo y el entusiasmo alcanzan, podré tratar algún otro tema de interés general para todos los curiosos habitantes de la Segunda Vida.</p>
+]]></content>
+  </entry>
+  
+</feed>

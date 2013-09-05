@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: LSL2 | Tiaeld Tolsen y el (meta)mundo.]]></title>
+  <link href="http://lsl.xpktro.com//github/blog/categories/lsl2/atom.xml" rel="self"/>
+  <link href="http://lsl.xpktro.com//github/"/>
+  <updated>2013-09-05T00:26:43-05:00</updated>
+  <id>http://lsl.xpktro.com//github/</id>
+  <author>
+    <name><![CDATA[Tiaeld Tolsen]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Introduccion y Requisitos]]></title>
+    <link href="http://lsl.xpktro.com//github/blog/2013/09/03/introduccion-y-requisitos/"/>
+    <updated>2013-09-03T22:48:00-05:00</updated>
+    <id>http://lsl.xpktro.com//github/blog/2013/09/03/introduccion-y-requisitos</id>
+    <content type="html"><![CDATA[<p>Que el título no les asuste, en realidad no hay mucho por saber de anticipado antes de poder llevar y concluir el curso de LSL con éxito.</p>
+
+<h3>Nota Introductoria</h3>
+
+<p>Sobre el curso en sí hay un par de cositas por decir. Empezamos desde el <em>cero absoluto</em>, asumiendo que el lector no tiene (mucha) idea sobre ningún tema afín a la programación y al scripting. El objetivo es que al final (aunque es probable que mucho antes) del ciclo de entregas del curso, el lector se encuentre en condiciones de buscar su camino por las páginas de la documentación para poder encontrar la satisfacción a todas sus necesidades, si es que alguna de las actuales entregas no lo ha hecho previamente.</p>
+
+<p>Espero que encuentren llevable la cantidad y calidad de la información que será vertida a lo largo de las entregas. Cualquier anotación, petición o consulta puede realizarse a través de la caja de comentarios que estará completamente abierta en todo momento.</p>
+
+<p>En la parte superior de esta página, en la <em><strong>barra de navegación</strong></em> encontrarán acceso al índice general de temas y el glosario de los términos potencialmente poco-familiares que vayamos pudiendo encontrarnos a lo largo del camino.</p>
+
+<h3>Requisitos</h3>
+
+<p>Para el desarrollo del curso se asume que los lectores deben de cumplir una sencillísima serie de requisitos:</p>
+
+<ul>
+<li>Tener nociones básicas de construcción. Con poder <em>rezear</em> un <em>prim</em> y poder ver/agregarle contenidos es suficiente. Aunque incluso describiremos los procedimientos mencionados en las primeras clases.</li>
+<li>Tener un navegador moderno/actualizado para poder visualizar correctamente algunos elementos de este curso. Incluso el navegador que viene dentro de su visor será suficiente en un inicio.</li>
+<li>Tener muchísima curiosidad y ganas de aprender. Nunca es suficiente cuando se trata del <em>scripting</em>.</li>
+</ul>
+
+
+<p>No hay mucho más por agregar para poder empezar, la mayor ventaja de ser <em>scripter</em> es poder producir cosas a partir de prácticamente la imaginación con un poco de esfuerzo de por medio.</p>
+
+<h3>Materiales</h3>
+
+<p>La referencia más completa y más grande del lenguaje de <em>scripting</em> se encuentra en la <a href="http://wiki.secondlife.com/wiki/LSL_Portal/es">Wiki oficial de LSL (este es el portal en español)</a>. Considérese como el lugar definitivo al cual acudir ante una duda o necesidad de información. Adicionalmente hay una versión paralela con algunos consejos adicionales y material de interés llamada <a href="http://lslwiki.net/lslwiki/wakka.php?wakka=HomePage">LSLWiki</a>.</p>
+
+<p>Desafortunadamente, la información sobre <em>scripting</em> en español es casi nula, incluso en los canales anteriormente mencionados. Es otro de los motivos por los cuales existe el presente curso. Sin embargo, tras cierto número de entregas, el lector encontrará mucho más comprensibles las fuentes en inglés y podrá continuar sin ningún problema (e incluso, si así se desea, aportar con el conocimiento traduciendo alguna página oficial al español).</p>
+
+<p>Los materiales multimedia que puedan aparecer a lo largo de las entregas estarán producidos utilizando el visor <a href="http://www.firestormviewer.org/">Firestorm</a>. Hago el adelanto de si se encuentran con algún botón o pantalla algo distinta a la de los visores que suelen utilizan habrá de ser por este motivo. Sin embargo, salvo estricta advertencia (y es muy poco probable que esto ocurra) se utilizarán funciones exclusivas de este visor; aún así, el proceso principal de <em>scripting</em> y construcción no requerirá nada más de lo que se puede hacer en cualquier visor vigente.</p>
+
+<p>Si bien será más que suficiente utilizar el editor de <em>scripts</em> incorporado en su visor para poder llevar a cabo el curso. Puede usarse cualquier otro editor de texto para ejecutar y completar el curso. Una lista extensiva y bastante bien documentada sobre herramientas externas de <em>scripting</em> disponibles <a href="http://wiki.secondlife.com/wiki/LSL_Alternate_Editors">se encuentra en la wiki de Second Life</a>.</p>
+
+<p><em>Como dato adicional para los lectores curiosos. En su momento (para la mayoría de mis trabajos realizados) utilizé Notepad++ con una extensión para resaltar el lenguaje de scripting que encontré en la página arriba mencionada mas unos ajustes adicionales personales. Tiempo después descubrí Sublime Text 2 y me quedé con él hasta el día de hoy debido a la cantidad de cosas maravillosas que se pueden lograr con él (incluso este curso está siendo escrito con él :P)</em></p>
+]]></content>
+  </entry>
+  
+</feed>
