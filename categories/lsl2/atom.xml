@@ -4,7 +4,7 @@
   <title><![CDATA[Category: LSL2 | Tiaeld Tolsen y el (meta)mundo.]]></title>
   <link href="http://lsl.xpktro.com///categories/lsl2/atom.xml" rel="self"/>
   <link href="http://lsl.xpktro.com//"/>
-  <updated>2013-09-07T02:51:26-05:00</updated>
+  <updated>2013-09-07T16:21:19-05:00</updated>
   <id>http://lsl.xpktro.com//</id>
   <author>
     <name><![CDATA[Tiaeld Tolsen]]></name>
@@ -23,7 +23,112 @@
 <!-- more -->
 
 
+<p>Qué mejor forma de empezar en el mundo del scripting que produciendo nuestro propio primer script, y para este primer caso ¡no es necesario hacer casi nada!. Asegúrese de encontrarse en un terreno en donde pueda construir y que tenga un tiempo de retorno de <em>prims</em> relativamente alto (pasaremos un tiempo mirando nuestro script).</p>
 
+<h3>Nuestro primer script: creación</h3>
+
+<p>Presione el botón de construcción en la parte inferior de su visor (o donde habitualmente sabe que se encuentra).</p>
+
+<p><img class="center" src="/images/build.png"></p>
+
+<p>Haga click en cualquier lugar cercano a su ubicación y vea cómo un hermoso cubo de madera, junto con la <em>herramienta de construcción</em> se materializan en su pantalla. El acto de <em>producir objetos</em> en el <em>mundo</em> se conoce comúnmente como <strong>rezear</strong> (la etimología puede verse en el glosario).</p>
+
+<p><img class="center" src="/images/rez.png"></p>
+
+<p>Diríjase a la pestaña de <strong>contenidos</strong> en la <em>herramienta de construcción</em>. Un <em>prim</em> puede contener varios <em>objetos</em>, para ello cuenta con un <em>inventario</em>, el cual estamos observando en este momento. Obsérvese la presencia de algunos botones relacionados con el manejo de scripts, utilizaremos estos botones a menudo.</p>
+
+<p>Presione el botón de <strong>Nuevo Script</strong> y observe cómo éste aparece en el <em>inventario</em> del objeto que estamos editando. Inmediatamente después, un curioso mensaje asoma por la ventana del chat general.</p>
+
+<p><img class="center" src="/images/primcontents.png"></p>
+
+<p>¡Lo hemos logrado! la creación de nuestro primer <em>script</em> <em>casi-sin-esfuerzo</em> ha sido satisfactoria. Veamos con más detalle la maravilla que acabamos de crear, haciendo doble click al <strong>Script Nuevo</strong> dentro del inventario del <em>prim</em>.</p>
+
+<p><img class="center" src="/images/scripteditor.png"></p>
+
+<p>La ventana que se nos muestra es el <strong>editor de scripts</strong>, dentro de ella escribiremos/editaremos nuestro código, y ordenaremos la ejecución o detención del script que estemos observando. Adicionalmente el editor nos permite reconocer los distintos elementos que conforman un script resaltándolos con distintos colores; a esto se le suele llamar <strong>resaltado de sintaxis</strong>.</p>
+
+<h3>Nuestro primer script: disección</h3>
+
+<p>Empecemos por lo que nos resulta más evidente: el &ldquo;Hello, Avatar!&rdquo;.</p>
+
+<p><code>lsl
+llSay(0, "Hello, Avatar!");
+</code></p>
+
+<p>Todas las instrucciones que un objeto vaya a ejecutar han de terminar con un punto y coma (;), en este caso, se deduce que al objeto se le ha ordenado algo que resultó en escribir &ldquo;Hello, Avatar!&rdquo; por el chat general.</p>
+
+<p>El lenguaje de <em>scripting</em> trae un gigantesco volumen de acciones que puede realizar nuestro objeto. A estas acciones se les conoce con el nombre de <strong>funciones</strong>, y todas están nombradas empezando con dos letras &lsquo;l&rsquo; minúsculas (ll por Linden Lab :)), seguidas de una corta y contundente descripción de su uso. En este caso, podemos ver que se utiliza función <code>llSay</code>. Utilizar una función significa llamarla por su nombre, y escribir entre paréntesis una serie de datos que necesita para <em>funcionar</em>, separados por comas.</p>
+
+<p>En un nivel más atómico, el <em>scripting</em> implica manejar datos, como por ejemplo un texto: <code>"Hello, Avatar!"</code>, o un número: <code>0</code>. Veremos en la siguiente lección los distintos tipos de datos que existen para el lenguaje, pero esa es otra historia. Hasta este punto sabemos que además de haberse ejecutado una instrucción, esta instrucción es la acción llSay, y que la acción recibió los datos <code>0</code> y <code>"Hello, Avatar!"</code>.</p>
+
+<p><code>llSay</code> es la acción que permite que nuestro objeto emita un mensaje a través del chat. En el <em>metaverso</em>, los mensajes pueden viajar a través de una serie de canales numerados, siendo el <code>0</code> el que conocemos como el <em>chat general</em> y extendiéndose hasta un número muy pero muy grande. Todos los canales del chat son públicos, pero como <em>avatares</em> sólo podemos <em>escuchar</em> el canal 0. En una clase posterior volveremos a tocar el tema a fondo, pero la importancia de esto es el significado del primer dato que recibió <code>llSay</code>: es <strong>el canal por el cual emitir el mensaje</strong>. El siguiente dato se explica por sí mismo: es el texto a enviarse, que en este caso es el famosísimo <code>"Hello, Avatar!"</code>. Aquí notaremos otra cosa muy importante: todos los datos que representan <strong>textos</strong> van siempre <strong>encerrados entre comillas dobles</strong>, acordarse siempre de esto, y del detalle de los puntos y comas le evitarán muchos dolores de cabeza.</p>
+
+<p>La forma de uso de las funciones, o sea cuántos, cuáles y en qué orden van los datos, viene definida por los creadores del lenguaje y es inalterable. Faltar o cambiar algo a estas definiciones resultará en comportamientos inesperados o simplemente el script <em>se romperá</em>. No es momento de asustarse todavía por nada de esto, pero vale la advertencia para el futuro.</p>
+
+<p>En resumen, hasta ahora sabemos que <code>llSay(0, "Hello, Avatar!");</code> significa: <em>di <code>"Hello, Avatar!"</code> en el canal <code>0</code></em>, pero regresando a nuestra premisa inicial, ¿Qué evento se produjo para que esto ocurra? para entender el elemento faltante en nuestra ecuación, daremos un paso atrás para aprender acerca de los <strong>estados</strong> y los <strong>eventos</strong>.</p>
+
+<h3>Estados y Eventos</h3>
+
+<p>En términos estrictamente técnicos, <em>LSL es un lenguaje orientado a eventos y estados</em>, y aunque la oración anterior pudo haberle producido algo de recelo, veremos que es algo mucho más sencillo de lo que parece.</p>
+
+<p>Un evento es <strong>algo que ocurre en algún momento</strong>, y, al igual que en la vida real, en el mundo del <em>scripting</em>, su significado es el mismo. Todas las acciones que se ejecuten en un script, habrán ocurrido en razón a un evento. Por ejemplo: la recepción de un pago, el click del mouse de un avatar, la cercanía de un avatar, etc&hellip;</p>
+
+<p>Los eventos en LSL están escritos en letras minúsculas y opcionalmente contienen guiones, análogamente al caso de las funciones, los eventos también tienen una serie de datos asociados a ellos, con la excepción que nosotros no <em>introducimos</em> los datos, sino que los <em>recibimos</em>. Veremos esto en detalle en una lección posterior. Por ejemplo, el evento que define el click del mouse se escribe:</p>
+
+<p>```lsl
+touch_start(integer total_number) {</p>
+
+<pre><code>instrucciones...
+instrucciones...
+instrucciones...
+</code></pre>
+
+<p>}
+```</p>
+
+<p>Al igual que las funciones, los <em>datos</em> de los eventos también se escriben entre paréntesis, seguidos de llaves <code>{}</code> que delimitan a las instrucciones que se ejecutarán. Habrá observado que en el script autogenerado la posición de las llave inicial cambió a la siguiente línea. El motivo de esto es puramente estético. De hecho, los <em>scripts</em> podrían escribirse en una sola línea y funcionar exactamente igual, pero el resultado sería muy poco legible y no queremos eso para nada. Adicionalmente la alineación de las instrucciones respecto al estado y a los demás elementos también tiene un motivo estético. Al esta <em>jerarquía</em> de posiciones de las instrucciones se la llama <strong>indentación</strong>. Y para terminar, el significado de <code>integer total_number</code> será visto en una clase posterior. Por ahora asumamos que es así como se debe de definir el evento <code>touch_start</code> siempre.</p>
+
+<p>Es hora de hablar de estados. Un estado en la vida real es <em>una forma de estar</em>, un conjunto de características que definen a algo (un objeto, una persona, etc&hellip;). En términos de <em>scripting</em>, un estado es <strong>un conjunto de eventos</strong>. Los estados sirven para delimitar una serie de respuestas de forma abstracta; si lo miramos con detalle veremos que cobra sentido: podemos hacer que una lámpara se encienda cuando se encuentre en estado <em>apagado</em> (que normalmente sería el estado <em>por defecto</em>), y viceversa, que se apague cuando se encuentre <em>encendida</em>. El manejo de estados nos ayudará mucho a lo largo de nuestra vida como <em>scripters</em>, aunque ese será el objeto de otra lección.</p>
+
+<p>```lsl
+default {</p>
+
+<pre><code>touch_start(integer total_number){
+    ...
+}
+
+...
+...
+...
+</code></pre>
+
+<p>}
+```</p>
+
+<p>En nuestro <em>script</em>, solamente tenemos un estado, el estado <em>por defecto</em> <code>default</code>. Al igual que con los eventos, todos sus contenidos están encerrados entre llaves, pero a diferencia de estos, los eventos no envían ni reciben datos como tales, entonces no necesitan paréntesis algunos. <strong>Todo script debe de tener obligatoriamente el estado <code>default</code>, de lo contrario no funcionará</strong>.</p>
+
+<p>Y tras todo esto, ¿a qué evento corresponde el tal <code>state_entry</code>?, algunos ya habrán sacado sus conclusiones: <code>state_entry</code> es el evento que se produce cada vez que un objeto <em>entra</em> a un estado, y como el estado por defecto en todo script es el <code>default</code>, al ejecutarse por primera vez el script, se entrará al estado <code>default</code>, desencadenando <code>state_entry</code>.</p>
+
+<p>En pocas palabras: ¡"Hello, Avatar!&ldquo; es lo primero que se verá al ejecutar el script por primera vez!. Lo veremos totalmente claro en esta secuencia de pasos:</p>
+
+<ul>
+<li>El script se genera.</li>
+<li>El script entra en el estado <code>default</code>.</li>
+<li><code>state_entry</code> es disparado al entrar en <code>default</code>.</li>
+<li>Se ejecuta <code>llSay(0, "Hello Avatar!");</code></li>
+<li>En el canal <code>0</code>, aparece el texto <code>"Hello Avatar!"</code></li>
+</ul>
+
+
+<p>Y así, querido lector, hemos disecado satisfactoriamente el famoso <em>Hola, Avatar!</em> con nuestras propias manos. Como pequeño ejercicio de reforzamiento intente explicar cuál es la secuencia de pasos que hacen que el objeto diga &ldquo;Touched.&rdquo; cuando se le hace click.</p>
+
+<p>Adicionalmente, intente cambiar los mensajes que aparecen en ambos casos. Cuando haya realizado los cambios, presione el botón de guardar (graficado con la imagen de un diskette), y si todo salió bien, verá la palabra &ldquo;Guardado.&rdquo; en el cuadro inferior de la ventana de edición; de lo contrario, un mensaje le advertirá de los problemas que hayan podido ocurrir durante el guardado. Asegúrese también de que la casilla de &ldquo;Ejecutándose&rdquo; se encuentre marcada.</p>
+
+<p><img class="center" src="/images/saved.png"></p>
+
+<p>En la siguiente lección nos adentraremos en el primero de nuestros asuntos pendientes: veremos todos los tipos de datos que tenemos disponibles para poder escribir nuestros <em>scripts</em>.</p>
+
+<p>Como bien saben, cualquier aclaración o sugerencia es bienvenida en el área de comentarios, y agradeciéndole su paciencia y determinación para con el curso me despido por ahora.</p>
 ]]></content>
   </entry>
   
@@ -55,7 +160,7 @@
 <h3>Una Poseball</h3>
 
 <ul>
-<li><strong>Circunstancia:</strong> Un avatar se sienta.</li>
+<li><strong>Evento:</strong> Un avatar se sienta.</li>
 <li><strong>Objeto que reacciona:</strong> La bola/silla/cama/etc donde uno se sienta.</li>
 <li><strong>Reacción:</strong> Ejecutar una animación sobre el avatar.</li>
 </ul>
@@ -70,7 +175,7 @@
 <h3>Un TipJar (alcancía)</h3>
 
 <ul>
-<li><strong>Circunstancia:</strong> Un avatar le entrega dinero al TipJar.</li>
+<li><strong>Evento:</strong> Un avatar le entrega dinero al TipJar.</li>
 <li><strong>Objeto que reacciona:</strong> El TipJar.</li>
 <li><strong>Reacción:</strong> Agradecer al donador/actualizar el contador de cantidades recibidas.</li>
 </ul>
@@ -85,7 +190,7 @@
 <h3>Una Puerta</h3>
 
 <ul>
-<li><strong>Circunstancia:</strong> Un avatar da un click a la puerta.</li>
+<li><strong>Evento:</strong> Un avatar da un click a la puerta.</li>
 <li><strong>Objeto que reacciona:</strong> La Puerta.</li>
 <li><strong>Reacción:</strong> La puerta gira para abrirse/cerrarse.</li>
 </ul>
@@ -101,7 +206,7 @@
 
 <p>Ya tenemos vista la <em>filosofía</em> detrás del <em>scripting</em>, pero ¿ahora qué?; ¿cómo es que le decimos a nuestros objetos que hagan tal o cual cosa?, la respuesta es sencilla: a través del <em>scripting</em>. Como actualmente las máquinas/programas son algo tontos y todavía no pueden entender las palabras que utilizamos las personas para comunicarnos, debemos de utilizar un <strong>código</strong> para hacernos entender, y que las máquinas (en este caso, los objetos del mundo) nos entiendan. Este <strong>código</strong> tiene una serie de reglas que definen su estructura. A diferencia de los lenguajes que utilizamos para comunicarnos entre las personas, para con las máquinas <strong>debemos de mantener siempre una misma estructura</strong>, porque, como ya dije anteriormente, (todavía) son algo torpes para entendernos.</p>
 
-<p>El código que utilizaremos para comunicarnos con nuestros objetos se llama <strong>LSL2</strong>, el 2 indica que hubo una <em>versión</em> anterior en algún momento del pasado que ya no es vigente, y que por comodidad nos referiremos (al igual que la gran mayoría de residentes) a él como simplemente <strong>LSL</strong> (siglas de <em>Linden Scripting Language</em>, ¿ahora entiende lo que significa?). Todo el código que escribamos deberá de estar contenido en un <em>script</em>, y este <em>script</em> residirá al <em>interior</em> del objeto que querramos que reaccione. Veremos ejemplos concretos de estos procedimientos en unos instantes.</p>
+<p>El código que utilizaremos para comunicarnos con nuestros objetos se llama <strong>LSL2</strong>, el 2 indica que hubo una <em>versión</em> anterior en algún momento del pasado que ya no es vigente, y que por comodidad nos referiremos (al igual que la gran mayoría de residentes) a él como simplemente <strong>LSL</strong> (siglas de <em>Linden Scripting Language</em>, ¿ahora entiende lo que significa?). Todo el código que escribamos deberá de estar contenido en un <em>script</em>, y este <em>script</em> residirá al <em>interior</em> del objeto que querramos que reaccione. Veremos ejemplos concretos de estos procedimientos en la siguiente lección.</p>
 
 <p>Una de las cosas para lo que las máquinas sí sirven, y muy bien, es poder realizar muchas tareas en simultáneo (o hacerlas tan rápido que pareciera que es así), entonces es posible tener más de un <em>script</em> en un objeto, y que este pueda responder de cuantas formas se haya definido en todos sus scripts en simultáneo.</p>
 

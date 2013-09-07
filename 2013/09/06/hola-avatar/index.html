@@ -132,14 +132,14 @@ default{ state_entry(){ llSay(0, &quot;¡Hola Avatar!&quot;); }
 <!-- more -->
 
 
-<p><span class='pullquote-right' data-pullquote='un script es un conjunto de instrucciones que le dicen a un objeto cómo reaccionar ante determinadas circunstancias'>
-En pocas y concretas palabras, un <em>script</em> es <strong>un conjunto de instrucciones que le dicen a un objeto cómo reaccionar ante determinadas circunstancias</strong>. Escriban eso y ténganlo siempre presente; <strong>toda</strong> la lógica de un script se reduce a esa oración, demostraremos que esto es verdad a lo largo del curso, pero pondré un par de ejemplos para aclarar la situación:
+<p><span class='pullquote-right' data-pullquote='un script es un conjunto de instrucciones que le dicen a un objeto cómo reaccionar ante determinados eventos'>
+En pocas y concretas palabras, un <em>script</em> es <strong>un conjunto de instrucciones que le dicen a un objeto cómo reaccionar ante determinados eventos</strong>. Escriban eso y ténganlo siempre presente; <strong>toda</strong> la lógica de un script se reduce a esa oración, demostraremos que esto es verdad a lo largo del curso, pero pondré un par de ejemplos para aclarar la situación:
 </span></p>
 
 <h3>Una Poseball</h3>
 
 <ul>
-<li><strong>Circunstancia:</strong> Un avatar se sienta.</li>
+<li><strong>Evento:</strong> Un avatar se sienta.</li>
 <li><strong>Objeto que reacciona:</strong> La bola/silla/cama/etc donde uno se sienta.</li>
 <li><strong>Reacción:</strong> Ejecutar una animación sobre el avatar.</li>
 </ul>
@@ -154,7 +154,7 @@ En pocas y concretas palabras, un <em>script</em> es <strong>un conjunto de inst
 <h3>Un TipJar (alcancía)</h3>
 
 <ul>
-<li><strong>Circunstancia:</strong> Un avatar le entrega dinero al TipJar.</li>
+<li><strong>Evento:</strong> Un avatar le entrega dinero al TipJar.</li>
 <li><strong>Objeto que reacciona:</strong> El TipJar.</li>
 <li><strong>Reacción:</strong> Agradecer al donador/actualizar el contador de cantidades recibidas.</li>
 </ul>
@@ -169,7 +169,7 @@ En pocas y concretas palabras, un <em>script</em> es <strong>un conjunto de inst
 <h3>Una Puerta</h3>
 
 <ul>
-<li><strong>Circunstancia:</strong> Un avatar da un click a la puerta.</li>
+<li><strong>Evento:</strong> Un avatar da un click a la puerta.</li>
 <li><strong>Objeto que reacciona:</strong> La Puerta.</li>
 <li><strong>Reacción:</strong> La puerta gira para abrirse/cerrarse.</li>
 </ul>
@@ -185,7 +185,7 @@ En pocas y concretas palabras, un <em>script</em> es <strong>un conjunto de inst
 
 <p>Ya tenemos vista la <em>filosofía</em> detrás del <em>scripting</em>, pero ¿ahora qué?; ¿cómo es que le decimos a nuestros objetos que hagan tal o cual cosa?, la respuesta es sencilla: a través del <em>scripting</em>. Como actualmente las máquinas/programas son algo tontos y todavía no pueden entender las palabras que utilizamos las personas para comunicarnos, debemos de utilizar un <strong>código</strong> para hacernos entender, y que las máquinas (en este caso, los objetos del mundo) nos entiendan. Este <strong>código</strong> tiene una serie de reglas que definen su estructura. A diferencia de los lenguajes que utilizamos para comunicarnos entre las personas, para con las máquinas <strong>debemos de mantener siempre una misma estructura</strong>, porque, como ya dije anteriormente, (todavía) son algo torpes para entendernos.</p>
 
-<p>El código que utilizaremos para comunicarnos con nuestros objetos se llama <strong>LSL2</strong>, el 2 indica que hubo una <em>versión</em> anterior en algún momento del pasado que ya no es vigente, y que por comodidad nos referiremos (al igual que la gran mayoría de residentes) a él como simplemente <strong>LSL</strong> (siglas de <em>Linden Scripting Language</em>, ¿ahora entiende lo que significa?). Todo el código que escribamos deberá de estar contenido en un <em>script</em>, y este <em>script</em> residirá al <em>interior</em> del objeto que querramos que reaccione. Veremos ejemplos concretos de estos procedimientos en unos instantes.</p>
+<p>El código que utilizaremos para comunicarnos con nuestros objetos se llama <strong>LSL2</strong>, el 2 indica que hubo una <em>versión</em> anterior en algún momento del pasado que ya no es vigente, y que por comodidad nos referiremos (al igual que la gran mayoría de residentes) a él como simplemente <strong>LSL</strong> (siglas de <em>Linden Scripting Language</em>, ¿ahora entiende lo que significa?). Todo el código que escribamos deberá de estar contenido en un <em>script</em>, y este <em>script</em> residirá al <em>interior</em> del objeto que querramos que reaccione. Veremos ejemplos concretos de estos procedimientos en la siguiente lección.</p>
 
 <p>Una de las cosas para lo que las máquinas sí sirven, y muy bien, es poder realizar muchas tareas en simultáneo (o hacerlas tan rápido que pareciera que es así), entonces es posible tener más de un <em>script</em> en un objeto, y que este pueda responder de cuantas formas se haya definido en todos sus scripts en simultáneo.</p>
 
