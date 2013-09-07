@@ -4,7 +4,7 @@
   <title><![CDATA[Category: LSL2 | Tiaeld Tolsen y el (meta)mundo.]]></title>
   <link href="http://lsl.xpktro.com///categories/lsl2/atom.xml" rel="self"/>
   <link href="http://lsl.xpktro.com//"/>
-  <updated>2013-09-05T17:39:01-05:00</updated>
+  <updated>2013-09-07T02:42:10-05:00</updated>
   <id>http://lsl.xpktro.com//</id>
   <author>
     <name><![CDATA[Tiaeld Tolsen]]></name>
@@ -14,11 +14,110 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Introduccion y Requisitos]]></title>
+    <title type="html"><![CDATA[Lección 1: Hola Avatar, Disecado]]></title>
+    <link href="http://lsl.xpktro.com//2013/09/06/dentro-del-hola-avatar/"/>
+    <updated>2013-09-06T15:59:00-05:00</updated>
+    <id>http://lsl.xpktro.com//2013/09/06/dentro-del-hola-avatar</id>
+    <content type="html"><![CDATA[<p>En esta primera lección formal, disecaremos a detalle el más sencillo e interesante de los <em>scripts</em>: el <strong>Hola Avatar</strong>. <a href="/2013/09/06/hola-avatar">Si no ha leido la lección anterior, es un buen momento para hacerlo,</a> ya que me referiré a algunas cosas ahí mencionadas.</p>
+
+<!-- more -->
+
+
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Lección 0: Hola Avatar]]></title>
+    <link href="http://lsl.xpktro.com//2013/09/06/hola-avatar/"/>
+    <updated>2013-09-06T01:20:00-05:00</updated>
+    <id>http://lsl.xpktro.com//2013/09/06/hola-avatar</id>
+    <content type="html"><![CDATA[<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>El infame Hola Avatar (hello_avatar.lsl)</span> <a href='/downloads/code/hello_avatar.lsl'>download</a></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='lsl'><span class='line'><span class="kd">default</span><span class="p">{</span>
+</span><span class='line'><span class="w">    </span><span class="go">state_entry</span><span class="p">(){</span>
+</span><span class='line'><span class="w">        </span><span class="nb">llSay</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;¡Hola Avatar!&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="w">    </span><span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>Antes de preocuparnos por entender la maravillosa pieza de código que encabeza esta lección, enfoquémonos por un momento en el aspecto <em>filosófico</em> del <em>scripting</em>.</p>
+
+<!-- more -->
+
+
+<p>Surround your pullquote like this {" text to be quoted "}</p>
+
+<h3>Una Poseball</h3>
+
+<ul>
+<li><strong>Circunstancia:</strong> Un avatar se sienta.</li>
+<li><strong>Objeto que reacciona:</strong> La bola/silla/cama/etc donde uno se sienta.</li>
+<li><strong>Reacción:</strong> Ejecutar una animación sobre el avatar.</li>
+</ul>
+
+
+<div style="text-align: center;"><img src="http://lsl.xpktro.com//images/poseball.png" width="300"><img src="http://lsl.xpktro.com//images/poseball2.png" width="300"></div>
+
+
+<br>
+
+
+<h3>Un TipJar (alcancía)</h3>
+
+<ul>
+<li><strong>Circunstancia:</strong> Un avatar le entrega dinero al TipJar.</li>
+<li><strong>Objeto que reacciona:</strong> El TipJar.</li>
+<li><strong>Reacción:</strong> Agradecer al donador/actualizar el contador de cantidades recibidas.</li>
+</ul>
+
+
+<div style="text-align: center;"><img src="http://lsl.xpktro.com//images/tipjar.png" width="400"><img src="http://lsl.xpktro.com//images/tipjar2.png" height="200"></div>
+
+
+<br>
+
+
+<h3>Una Puerta</h3>
+
+<ul>
+<li><strong>Circunstancia:</strong> Un avatar da un click a la puerta.</li>
+<li><strong>Objeto que reacciona:</strong> La Puerta.</li>
+<li><strong>Reacción:</strong> La puerta gira para abrirse/cerrarse.</li>
+</ul>
+
+
+<div style="text-align: center;"><img src="http://lsl.xpktro.com//images/door.png" width="300"><img src="http://lsl.xpktro.com//images/door2.png" width="300"></div>
+
+
+<br>
+
+
+<p>También existen acciones/reacciones algo más complejas o abstractas, como la colisión entre dos objetos, o la lectura de una notecard, pero no es necesario marearse tanto en este momento. Lo único que debemos de saber y reconocer desde ahora es a ver el mundo desde esta nueva perspectiva: Acción &ndash;> Objeto &ndash;> Reacción.</p>
+
+<p>Ya tenemos vista la <em>filosofía</em> detrás del <em>scripting</em>, pero ¿ahora qué?; ¿cómo es que le decimos a nuestros objetos que hagan tal o cual cosa?, la respuesta es sencilla: a través del <em>scripting</em>. Como actualmente las máquinas/programas son algo tontos y todavía no pueden entender las palabras que utilizamos las personas para comunicarnos, debemos de utilizar un <strong>código</strong> para hacernos entender, y que las máquinas (en este caso, los objetos del mundo) nos entiendan. Este <strong>código</strong> tiene una serie de reglas que definen su estructura. A diferencia de los lenguajes que utilizamos para comunicarnos entre las personas, para con las máquinas <strong>debemos de mantener siempre una misma estructura</strong>, porque, como ya dije anteriormente, (todavía) son algo torpes para entendernos.</p>
+
+<p>El código que utilizaremos para comunicarnos con nuestros objetos se llama <strong>LSL2</strong>, el 2 indica que hubo una <em>versión</em> anterior en algún momento del pasado que ya no es vigente, y que por comodidad nos referiremos (al igual que la gran mayoría de residentes) a él como simplemente <strong>LSL</strong> (siglas de <em>Linden Scripting Language</em>, ¿ahora entiende lo que significa?). Todo el código que escribamos deberá de estar contenido en un <em>script</em>, y este <em>script</em> residirá al <em>interior</em> del objeto que querramos que reaccione. Veremos ejemplos concretos de estos procedimientos en unos instantes.</p>
+
+<p>Una de las cosas para lo que las máquinas sí sirven, y muy bien, es poder realizar muchas tareas en simultáneo (o hacerlas tan rápido que pareciera que es así), entonces es posible tener más de un <em>script</em> en un objeto, y que este pueda responder de cuantas formas se haya definido en todos sus scripts en simultáneo.</p>
+
+<p>Sin nada más que agregar, vamos a ponernos manos a la obra con nuestro hasta ahora inentendido <em>Hola Avatar</em> desde un enfoque algo más técnico en la siguiente lección.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Introducción y Requisitos]]></title>
     <link href="http://lsl.xpktro.com//2013/09/03/introduccion-y-requisitos/"/>
     <updated>2013-09-03T22:48:00-05:00</updated>
     <id>http://lsl.xpktro.com//2013/09/03/introduccion-y-requisitos</id>
     <content type="html"><![CDATA[<p>Que el título no les asuste, en realidad no hay mucho por saber de anticipado antes de poder llevar y concluir el curso de LSL con éxito.</p>
+
+<!-- more -->
+
 
 <h3>Nota Introductoria</h3>
 
