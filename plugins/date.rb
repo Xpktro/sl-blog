@@ -29,6 +29,24 @@ module Octopress
       end
     end
 
+    # AWFUL LOCALE PATCH FUNCTIONS
+    def spanish_month()
+      {
+        1 => "enero",
+        2 => "febrero",
+        3 => "marzo",
+        4 => "abril",
+        5 => "mayo",
+        6 => "junio",
+        7 => "julio",
+        8 => "agosto",
+        9 => "septiembre",
+        10 => "octubre",
+        11 => "noviembre",
+        12 => "diciembre"
+      }
+    end
+
     # Formats date either as ordinal or by given date format
     # Adds %o as ordinal representation of the day
     def format_date(date, format)
@@ -37,6 +55,9 @@ module Octopress
         date_formatted = ordinalize(date)
       else
         date_formatted = date.strftime(format)
+        # ATTN: AWFUL LOCALE PATCH INCOMING
+        date_formatted.gsub!(/%0/, spanish_month[date.strftime('%-m').to_i])
+        # AWFUL LOCALE PATCH END
         date_formatted.gsub!(/%o/, ordinal(date.strftime('%e').to_i))
       end
       date_formatted

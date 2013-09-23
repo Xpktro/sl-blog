@@ -1,3 +1,8 @@
+# Tiaeld Tolsen y el (meta)Mundo - A Second Life blog.
+
+Powered by Octopress (which original README is below).
+
+
 ## What is Octopress?
 
 Octopress is [Jekyll](https://github.com/mojombo/jekyll) blogging at its finest.

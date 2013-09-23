@@ -1,0 +1,13 @@
+---
+layout: post
+title: "¡Hola, Mundo!"
+date: 2013-08-30 00:50
+comments: true
+categories: Introducción
+---
+
+Mi nombre dentro de Second Life es [Tiaeld Tolsen](https://my.secondlife.com/tiaeld.tolsen) (aunque también tengo una vida bastante tangible en los [planos de la realidad](http://www.xpktro.com)). Tengo varios años como residente, y algunos otros dedicándome profesionalmente al *Scripting*, esa (hasta ahora) oscura ciencia con la que se puede manejar de todo con todo tipo de aplicaciones.
+
+Inicialmente, este espacio ha sido concebido para albergar una serie de entregas que, en su conjunto, ¡terminarán siendo **un auténtico curso de LSL2**! aunque es bastante posible que la profundidad/detalle de las entregas no sea el suficiente como para abarcar la inmensidad de las funciones disponibles para los *scripters* actualmente, mi intención es proveer de una vez por todas, a todos los hispanohablantes interesados, del material necesario para que puedan empezar y desenvolverse en este ineresantísimo mundo.
+
+Los términos y condiciones del curso, serán puestos en otra sección, quedando esta como una simple bienvenida/breve introducción a este humilde sitio. Como siempre, todo comentario y/o sugerencia habrá de ser bien recibido; y si el tiempo y el entusiasmo alcanzan, podré tratar algún otro tema de interés general para todos los curiosos habitantes de la Segunda Vida.

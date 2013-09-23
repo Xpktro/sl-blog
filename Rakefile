@@ -2,6 +2,9 @@ require "rubygems"
 require "bundler/setup"
 require "stringex"
 
+require "rbconfig"
+is_windows = (RbConfig::CONFIG['host_os'] =~ /mswin|mingw|cygwin/)
+
 ## -- Rsync Deploy config -- ##
 # Be sure your public key is listed in your server's ~/.ssh/authorized_keys file
 ssh_user       = "user@domain.com"
@@ -9,14 +12,14 @@ ssh_port       = "22"
 document_root  = "~/website.com/"
 rsync_delete   = false
 rsync_args     = ""  # Any extra arguments to pass to rsync
-deploy_default = "rsync"
+deploy_default = "push"
 
 # This will be configured for you when you run config_deploy
 deploy_branch  = "gh-pages"
 
 ## -- Misc Configs -- ##
 
-public_dir      = "public"    # compiled site directory
+public_dir      = "public/"    # compiled site directory
 source_dir      = "source"    # source file directory
 blog_index_dir  = 'source'    # directory for your blog's index page (if you put your index in source/blog/index.html, set this to 'source/blog')
 deploy_dir      = "_deploy"   # deploy directory (for Github pages deployment)
@@ -51,6 +54,10 @@ end
 desc "Generate jekyll site"
 task :generate do
   raise "### You haven't set anything up yet. First run `rake install` to set up an Octopress theme." unless File.directory?(source_dir)
+  if is_windows
+    puts '* Changing the codepage'
+    `chcp 65001`
+  end
   puts "## Generating Site with Jekyll"
   system "compass compile --css-dir #{source_dir}/stylesheets"
   system "jekyll"
@@ -59,6 +66,10 @@ end
 desc "Watch the site and regenerate when it changes"
 task :watch do
   raise "### You haven't set anything up yet. First run `rake install` to set up an Octopress theme." unless File.directory?(source_dir)
+  if is_windows
+    puts '* Changing the codepage'
+    `chcp 65001`
+  end
   puts "Starting to watch source with Jekyll and Compass."
   system "compass compile --css-dir #{source_dir}/stylesheets" unless File.exist?("#{source_dir}/stylesheets/screen.css")
   jekyllPid = Process.spawn({"OCTOPRESS_ENV"=>"preview"}, "jekyll --auto")
@@ -75,6 +86,10 @@ end
 desc "preview the site in a web browser"
 task :preview do
   raise "### You haven't set anything up yet. First run `rake install` to set up an Octopress theme." unless File.directory?(source_dir)
+  if is_windows
+    puts '* Changing the codepage'
+    `chcp 65001`
+  end
   puts "Starting to watch source with Jekyll and Compass. Starting Rack on port #{server_port}"
   system "compass compile --css-dir #{source_dir}/stylesheets" unless File.exist?("#{source_dir}/stylesheets/screen.css")
   jekyllPid = Process.spawn({"OCTOPRESS_ENV"=>"preview"}, "jekyll --auto")
@@ -92,6 +107,10 @@ end
 # usage rake new_post[my-new-post] or rake new_post['my new post'] or rake new_post (defaults to "new-post")
 desc "Begin a new post in #{source_dir}/#{posts_dir}"
 task :new_post, :title do |t, args|
+  if is_windows
+    puts '* Changing the codepage'
+    `chcp 65001`
+  end
   if args.title
     title = args.title
   else
@@ -119,6 +138,10 @@ end
 desc "Create a new page in #{source_dir}/(filename)/index.#{new_page_ext}"
 task :new_page, :filename do |t, args|
   raise "### You haven't set anything up yet. First run `rake install` to set up an Octopress theme." unless File.directory?(source_dir)
+  if is_windows
+    puts '* Changing the codepage'
+    `chcp 65001`
+  end
   args.with_defaults(:filename => 'new-page')
   page_dir = [source_dir]
   if args.filename.downcase =~ /(^.+\/)?(.+)/
