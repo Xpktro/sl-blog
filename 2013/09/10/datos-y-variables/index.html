@@ -1,0 +1,515 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Lección 2: Tipos de Datos, Variables y Constantes - Tiaeld Tolsen y el (meta)mundo.</title>
+  <meta name="author" content="Tiaeld Tolsen">
+
+  
+  <meta name="description" content="Esta lección será eminentemente teórica y algo alargada, revisaremos con cierto nivel de detalles a los distintos tipos de datos con los que nos &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://lsl.xpktro.com//2013/09/10/datos-y-variables">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Tiaeld Tolsen y el (meta)mundo." type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-43825060-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Tiaeld Tolsen y el (meta)mundo.</a></h1>
+  
+    <h2>Apuntes potencialmente interesantes para los residentes de Second Life.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:lsl.xpktro.com/" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Inicio</a></li>
+  <li><a href="/blog/archives">Archivo</a></li>
+  <li><a href="/indice">Índice</a></li>
+  <li><a href="/glosario">Glosario</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Lección 2: Tipos De Datos, Variables Y Constantes</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-09-10T21:59:00-05:00" pubdate data-updated="true">10 de septiembre del 2013</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Esta lección será eminentemente teórica y algo alargada, revisaremos con cierto nivel de detalles a los distintos tipos de datos con los que nos podemos encontrar durante nuestra vida como <em>scripters</em>. A partir de la siguiente clase volveremos a casos y aplicaciones más <em>prácticas</em> del lenguaje de <em>scripting</em>.</p>
+
+<!-- more -->
+
+
+<p>Como dijimos antes, en su nivel más puro y técnico, el <em>scripting</em> consiste en el manejo de información. Esta manipulación de datos tarde o temprano resultará en la alimentación de determinadas funciones, que supondrán alguna u otra reacción, complementando la <em>fórmula</em> del <em>scripting:</em> <strong>instrucciones que hace que un objeto reaccione</strong>.</p>
+
+<p>Por ejemplo, la ejecución de <code>llSay(0, "¡Hola Avatar!");</code> ha requerido de los datos <code>0</code> y <code>"¡Hola Avatar!"</code>, y si bien esto es suficiente para el caso presentado, algunas otras funciones, junto con algunas de las ideas que puede estar teniendo listas para escribir necesiten de más tipos de información con los cuales <em>jugar</em> para poder realizar nuestros <em>scripts</em>.</p>
+
+<h3>Los Números Enteros (<code>integer</code>)</h3>
+
+<p><span class='pullquote-right' data-pullquote='los números enteros pueden ir desde −2,147,483,648 hasta 2,147,483,647'>
+Uno de los tipos de datos más básicos es el número entero. Al igual que en en el mundo <em>no-scripter</em>, los números enteros se escriben de una sola manera: <strong>usando números <em>(y el signo de negatividad cuando sea necesario)</em></strong>. Sin embargo, aunque grande, existe un límite entre el tamaño de los números que puedes escribir. Esto es, que los números enteros pueden ir desde <code>−2,147,483,648</code> hasta <code>2,147,483,647</code>. Si bien a estas alturas del curso este último dato no es casi relevante, le resultará curioso algún que otro lector.
+</span></p>
+
+<h3>Los Números Decimales (<code>float</code>)</h3>
+
+<p>La primera pregunta inmediata tras haber leido el párrafo anterior será sobre la posible existencia de los números decimales/fraccionarios/racionales, y la respuesta es que sí, también se consideran como tipo dato válido al número decimal. Además de su escritura convencional, hay una forma alternativas bastante usual: La abreviación del cero en la parte decimal o entera. O sea, es válido escribir número como <code>.25</code> y <code>1.</code> que equivalen a  <code>0.25</code> y <code>1.0</code> respectivamente. La precisión de los números es (en términos prácticos, lector interesado) de 6 lugares decimales.</p>
+
+<h3>Las Cadenas (<code>string</code>)</h3>
+
+<p><span class='pullquote-right' data-pullquote='Una cadena se escribe siempre rodeada de comillas dobles &#8221; y puede contener caracteres especiales.'>
+También vimos, en la clase, anterior, alguna luz sobre los <em>textos</em> como tipo de dato. Y efectivamente, no hay mucha ciencia en la representación de las cadenas de caracteres (este es, de ahora en adelante, el nombre con el cual nos referiremos a ellos). Una cadena se escribe siempre rodeada de comillas dobles <code>"</code> y puede contener caracteres <em>especiales</em>. Existe un par de caracteres que deben de escribirse de cierta forma para ser mostrados correctamente. Estos caracteres son: <code>"</code> y <code>\</code>. La forma de escribirlos es anteponer un slash invertido <code>\</code> al caracteres, con lo que resultarían siendo <code>\"</code> y <code>\\</code> respectivamente. Las cadenas pueden contener <em>saltos de línea</em> y tabulaciones, los cuales se representan con <code>\n</code> y <code>\t</code> respectivamente. Para finalizar, el límite de caracteres que puede contener una cadena está limitado por la cantidad de memoria que tenga un script (este concepto es todavía extraño a los recién iniciados, así que no es obligatoria su comprensión por el momento).
+</span></p>
+
+<h3>Los Vectores (<code>vector</code>)</h3>
+
+<p><span class='pullquote-right' data-pullquote='Un vector está denotado por los tres valores decimales separados por comas y rodeados de paréntesis quebrados &lt;&gt;.'>
+Esta palabra le sonará dulce a algún lector aficionado por las matemáticas, o le traerá malos recuerdos a los demás. Afortunadamente para todos, en su expresión más simple (que es la que nos interesa), vemos a un vector como la agrupación de tres números decimales, y el uso que le daremos a estos vectores dependerá del contexto en el cual nos encontremos. Iremos descubriendo estos contextos a lo largo del curso. Un vector está denotado por los tres valores decimales separados por comas y rodeados de paréntesis quebrados &lt;&gt;. Por ejemplo: <code>&lt;1.0, 1.0, 1.0&gt;</code> y <code>&lt;0., 13., .1&gt;</code> son dos representaciones válidas de vectores.
+</span></p>
+
+<h3>Las Rotaciones (<code>rotation</code>)</h3>
+
+<p><span class='pullquote-right' data-pullquote='las rotaciones se escriben casi igual a los vectores, con la única diferencia que no son tres, sino cuatro los valores decimales a agrupar'>
+De manera similar a los vectores, las rotaciones tienen un trasfondo matemático que, seamos sinceros, es bastante desagradable. Pero estimado lector, no deberá usted sufrir de ningún disgusto a lo largo del curso, ya que lo único que usted debe de saber de las rotaciones es que se utilizan para representar la forma en la cual un objeto se encuentra rotado respecto a un punto referencial. De forma práctica, <strong>nunca</strong> manipularemos manualmente ni directamente los valores de una rotación, por lo cual estaremos libres de intentar entender los principios matemáticos que las rigen. Aún así, debemos de saber que las rotaciones se escriben casi igual a los vectores, con la única diferencia que no son tres, sino cuatro los valores decimales a agrupar.
+</span></p>
+
+<h3>Los Keys (<code>key</code>)</h3>
+
+<p><span class='pullquote-right' data-pullquote='Un key es un identificador único para cada objeto y cada avatar que existe en el mundo.'>
+Muchas de las funciones que estudiaremos, o más concretamente, muchas de las más <em>útiles</em>, tendrán que ver con el manejo de avatares y objetos dentro del mundo. De esta manera, para su funcionamiento, se requerirá indicarle a estas funciones exactamente con qué o con quién <em>actuar</em>, y la única forma de hacerlo será a través de los keys. Un key es un identificador único para cada objeto y cada avatar que existe en el mundo. Este identificador está formado por una serie de 36 dígitos del sistema de numeración hexadecimal (o sea, 0 &ndash; F) y están separados por una serie de guiones simples. Por ejemplo <code>"a822ff2b-ff02-461d-b45d-dcd10a2de0c2"</code> es un key válido. En términos estrictamente prácticos, no hay diferencia alguna entre una cadena común y corriente y un key, salvo que este último, aparte de ser necesario por algunas funciones como dijimos al inicio, se encarga de <em>verificar</em> que hayamos introducido un valor correcto (en caso creemos keys manualmente).
+</span></p>
+
+<p>Existe un tipo de dato más adicional muy interesante que es la Lista (<code>list</code>), pero por su naturaleza algo más compleja, tendremos que revisarla en una clase posterior.</p>
+
+<h2>Variables y Constantes</h2>
+
+<p>Nos detuvimos un buen tiempo para revisar algunos asuntos teóricos en cuanto al lenguaje se refiere, pero es hora de ver algo un poco más concreto: aprenderemos qué son las variables (y de paso las constantes).</p>
+
+<h3>Variables</h3>
+
+<p>Si el lector recuerda alguna de sus clases de matemáticas en la escuela o similares, recordará haber escuchado el término <strong>variable</strong> en algún momento. Análogamente al concepto <em>matemático</em> de una variable, en términos de <em>scripting</em>, una variable es <em>algo</em> que es bastante propenso a cambiar, pero que recibe un nombre para referirnos a ello en cualquier momento, independientemente de si ha cambiado o no.</p>
+
+<p>Por ejemplo, si visitó algún centro comercial con sus amigos y cada uno de ustedes recibió un mensaje de bienvenida automático, pero personalizado conteniendo cada uno de sus nombres, podremos decir que el mensaje en cuestión es constante, pero que algunas partes de él como el nombre que se muestra es parte de una variable. Podemos ver también algo de esto en las jarras de propinas, que tienen un contador <em>variable</em> del dinero que ha sido donado hasta el momento y el nombre de la persona que hizo la última donación.</p>
+
+<p>Podemos también pensar en las variables como parte del <em>cerebro</em> del script, siendo aquellos lugares en donde podemos almacenar información de forma permanente hasta que algo o alguien decida cambiar sus contenidos.</p>
+
+<p>En efectos prácticos, podemos definir una variable utilizando la siguiente sintaxis:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>tipo nombre[ = valor];</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Todo aquello encerrado entre corchetes es de escritura opcional. Esto quiere decir, refiriéndonos al caso de las variables, que podemos crearlas y asignarles un valor de manera inmediata, esto es particularmente útil para cuando necesitemos definir algunos valores que se repetirán mucho a lo largo del <em>script</em> o que queremos que los usuarios del <em>script</em> puedan <em>configurar</em> estos parámetros a su gusto sin tener que alterar nada más que esas líneas iniciales. Volviendo al <code>tipo</code>: toda variable debe de especificarse con el tipo de dato que esta contendrá, si tratamos con una cadena, el tipo será <code>string</code>, o si es un número entero <code>integer</code>, para los demás tipos de datos, sus nombres están escritos entre paréntesis en cada título de esta lección.</p>
+
+<p>Veamos un ejemplo práctico del uso de las variables en nuestro primer script, el Hola Avatar:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='lsl'><span class='line'><span class="ni">string</span><span class="x"> </span><span class="n">nombre</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Tiaeld Tolsen&quot;</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="kd">default</span><span class="w"> </span><span class="p">{</span>
+</span><span class='line'><span class="w">    </span><span class="go">state_entry</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span class='line'><span class="w">        </span><span class="nb">llSay</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;¡Hola, &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">nombre</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;!&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="w">    </span><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="w">    </span><span class="go">touch_start</span><span class="p">(</span><span class="ni">integer</span><span class="x"> </span><span class="n">total_number</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span class='line'><span class="w">        </span><span class="nb">llSay</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Tocaste el prim de &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">nombre</span><span class="p">);</span>
+</span><span class='line'><span class="w">    </span><span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Notarán cómo utilizo el operador de suma <code>+</code> para <em>unir</em> una cadena a una variable. Este procedimiento, cuando se trata de dos o más cadenas, recibe el nombre de <em>concatenación</em>. Así que cada vez que querramos coser un <code>string</code> con otro, simplemente utilizamos <code>+</code>. Noten también que esta <em>concatenación</em> se hace <em>tal cual</em>, por lo que habrán que agregar los espacios que hagan falta para producir una oración correctamente escrita si se desea.</p>
+
+<p>También podemos hacer operaciones utilizando variables, por ejemplo:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='lsl'><span class='line'><span class="ni">string</span><span class="x"> </span><span class="n">nombre</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Tiaeld&quot;</span><span class="p">;</span>
+</span><span class='line'><span class="ni">string</span><span class="x"> </span><span class="n">apellido</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Tolsen&quot;</span><span class="p">;</span>
+</span><span class='line'><span class="ni">integer</span><span class="x"> </span><span class="n">veces</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="kd">default</span><span class="w"> </span><span class="p">{</span>
+</span><span class='line'><span class="w">    </span><span class="go">state_entry</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span class='line'><span class="w">        </span><span class="ni">string</span><span class="x"> </span><span class="n">nombre_completo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nombre</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">apellido</span><span class="p">;</span>
+</span><span class='line'><span class="w">        </span><span class="nb">llSay</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Este es el prim de &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">nombre_completo</span><span class="p">);</span>
+</span><span class='line'><span class="w">    </span><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="w">    </span><span class="go">touch_start</span><span class="p">(</span><span class="ni">integer</span><span class="x"> </span><span class="n">total_number</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span class='line'><span class="w">        </span><span class="n">veces</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">veces</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</span><span class='line'><span class="w">        </span><span class="nb">llSay</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Tocaste este prim &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">veces</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; veces.&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="w">    </span><span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Introduje un par de nuevas cosas de manera sutil en este script que imagino se habrán dado cuenta:</p>
+
+<ul>
+<li>Se pueden crear variables tant <em>fuera</em> de los estados como <em>dentro</em> de los eventos. El único lugar en donde no podemos crear variables es dentro de un estado (no de un evento, si no sólamente dentro de un estado).</li>
+<li>Una vez que una variable es definida, podemos cambiar su valor llamándola sólamente por su nombre las veces siguientes, como es el caso de <code>veces</code>.</li>
+<li>Podemos utilizar el mismo valor de la variable para volver a definir su valor. No habrá ningún problema con esto ya que <strong>las operaciones se ejecutan antes</strong> de asignar valores a variables.</li>
+</ul>
+
+
+<p>El lector podrá preguntarse si, en el ejemplo anterior, <code>nombre_completo</code> podrá ser utilizado en veces posteriores (como por ejemplo, en <code>touch_start</code>), la respuesta es <strong>no</strong>, <strong>una variable definida dentro de un bloque de código (como un evento) no será <em>visible</em> fuera de este</strong>. Si intenta referirse a <code>nombre_completo</code> desde <code>touch_start</code> obtendrá una alerta del editor de <em>scripts</em> que le impedirá continuar.</p>
+
+<p>De esta misma forma, las variables que se definan antes de los estados, podrán utilizarse a lo largo de todo el script, y normalmente se las llama <strong><em>variables globales</em></strong> por este motivo.</p>
+
+<p>¿Y si <code>veces</code> jamás obtuvo un valor al ser definida, cómo puede funcionar nuestro <em>script</em>? Sucede que todas las variables, al no definirlas con un valor específico, son <em>creadas</em> con un valor por defecto. Concretamente, los valores por defecto de todos los tipos de datos se encuentran en la siguiente tabla:</p>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th> Tipo       </th>
+<th> Valor              </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td> <code>integer</code>  </td>
+<td> <code>0</code></td>
+</tr>
+<tr>
+<td></td>
+<td> <code>float</code>    </td>
+<td> <code>0.</code></td>
+</tr>
+<tr>
+<td></td>
+<td> <code>string</code>   </td>
+<td> <code>""</code></td>
+</tr>
+<tr>
+<td></td>
+<td> <code>vector</code>   </td>
+<td> <code>&lt;0., 0., 0.&gt;</code></td>
+</tr>
+<tr>
+<td></td>
+<td> <code>rotation</code> </td>
+<td> <code>&lt;0., 0., 0., 1.&gt;</code></td>
+</tr>
+<tr>
+<td></td>
+<td> <code>key</code>      </td>
+<td> <code>""</code></td>
+</tr>
+<tr>
+<td></td>
+<td> <code>list</code>     </td>
+<td> <code>[]</code></td>
+</tr>
+</tbody>
+</table>
+
+
+<p>Y para finalizar nuestra lección, veremos un último ejemplo mucho más completo, y con más cosas nuevas que serán explicadas a continuación:</p>
+
+<figure class='code'><figcaption><span>Ejemplo Completo de Variables/Constantes (variables_constantes.lsl)</span> <a href='/downloads/code/variables_constantes.lsl'>download</a></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class='lsl'><span class='line'><span class="ni">string</span><span class="x"> </span><span class="n">mensaje</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hola, soy el prim con key&quot;</span><span class="p">;</span>
+</span><span class='line'><span class="ni">float</span><span class="x"> </span><span class="n">segundos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.5</span><span class="p">;</span>
+</span><span class='line'><span class="ni">vector</span><span class="x"> </span><span class="n">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;</span><span class="mf">0.</span><span class="p">,</span><span class="w"> </span><span class="mf">0.</span><span class="p">,</span><span class="w"> </span><span class="mf">1.</span><span class="o">&gt;</span><span class="p">;</span>
+</span><span class='line'><span class="ni">rotation</span><span class="x"> </span><span class="n">cero</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ZERO_ROTATION</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="kd">default</span><span class="w"> </span><span class="p">{</span>
+</span><span class='line'><span class="w">    </span><span class="go">state_entry</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span class='line'><span class="w">        </span><span class="ni">key</span><span class="x"> </span><span class="n">prim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">llGetKey</span><span class="p">();</span>
+</span><span class='line'><span class="w">        </span><span class="nb">llSay</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">mensaje</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">string</span><span class="p">)</span><span class="n">prim</span><span class="p">);</span>
+</span><span class='line'><span class="w">    </span><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="w">    </span><span class="go">touch_start</span><span class="p">(</span><span class="ni">integer</span><span class="x"> </span><span class="n">num_detected</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span class='line'><span class="w">        </span><span class="nb">llSetColor</span><span class="p">(</span><span class="n">color</span><span class="p">,</span><span class="w"> </span><span class="no">ALL_SIDES</span><span class="p">);</span>
+</span><span class='line'><span class="w">        </span><span class="nb">llSleep</span><span class="p">(</span><span class="n">segundos</span><span class="p">);</span>
+</span><span class='line'><span class="w">        </span><span class="nb">llSetRot</span><span class="p">(</span><span class="n">cero</span><span class="p">);</span>
+</span><span class='line'><span class="w">    </span><span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li><em>¿Podemos asignar una función a una variable?</em> En realidad estamos asignando el <strong>resultado</strong> de la función a la variable. <strong>Algunas funciones producen un dato tras ser <em>invocadas.</em></strong> En este caso <code>llGetKey()</code> produce el key del prim donde se encuentra el script actualmente.</li>
+<li>Ya que nuestra variable <code>prim</code> es del tipo <code>key</code>, y por lo visto anteriormente, <code>llSay</code> acepta sólamente datos del tipo <code>string</code>, se tiene que realizar una <strong><em>conversión</em></strong>, convertir un dato de un tipo a otro es tan sencillo como <strong>encerrar entre paréntesis el tipo de dato al que queremos transformar nuestro valor actual</strong>. En este caso, transformamos a <code>prim</code> de <code>key</code> a <code>string</code>.</li>
+<li><code>llSetColor</code> es una función nueva para nosotros, y como su nombre lo indica, cambia el color del cual está pintado el prim que contiene el script. Sin embargo, se requieren dos datos para su correcta ejecución: el color y la cara a pintar. Vemos que alimentamos a <code>llSetColor</code> con nuestra variable de tipo <code>vector</code>, esto es debido a que el color en términos de <em>scripting</em> se representa siempre de esta forma, siendo <strong>cada uno de los números decimales correspondiente a la cantidad de color Rojo, Verde y Azul del color a representar, variando desde 0.0 a 1.0</strong>, el lector tiene como ejercicio variar estos valores a gusto para obtener colores distintos. Para finalizar, el otro dato necesario es un número entero que puede variar desde <code>0</code> hasta el número de caras que tenga el prim, o la <em>constante</em> <code>ALL_SIDES</code>, que explicaremos a continuación.</li>
+<li>Las <em>variables</em> (a primera vista) <code>ZERO_ROTATION</code> y <code>ALL_SIDES</code> son lo que llamamos <strong>constantes</strong>. <strong>Una constante es, sencillamente, una variable cuya valor jamás cambiará</strong>, el lenguaje de <em>scripting</em> tiene una extensa lista de constantes de distintos tipos que tienen diversas utilidades. Concretamente, <code>ZERO_ROTATION</code> representa una rotación <em>nula</em>, y <code>ALL_SIDES</code> se usa junto con <code>llSetColor</code> para indicar que se habrán de <em>pintar</em> todas las caras del prim.</li>
+<li><code>llSleep</code> tiene como propósito <em>pausar</em> al script por cierta cantidad de tiempo, que justamente es el único dato que necesita para funcionar y que necesariamente tiene que ser de tipo <code>float</code>. Notarán que una vez se ha hecho click al <em>prim</em>, habrá una pausa de un segundo y medio antes de ejecutar la siguiente acción.</li>
+<li><code>llSetRot</code> cambia la rotación del prim respecto al mundo. Si no rotamos al prim que contiene este script manualmente, no se observará el efecto, de otra forma, le veremos regresar a su posición <em>inicial</em>. Como se observa, sólo necesita como dato la rotación a aplicarse sobre el prim.</li>
+</ul>
+
+
+<p>Y esta sería toda la lección. No se olviden de formular sin tapujo alguno todo tipo de aclaración, sugerencia, duda, corrección o comentario que crean conveniente. Haremos cosas mucho menos pesadas y más divertidas de ahora en adelante.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Tiaeld Tolsen</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-09-10T21:59:00-05:00" pubdate data-updated="true">10 de septiembre del 2013</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='//categories/lsl2/'>LSL2</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://lsl.xpktro.com//2013/09/10/datos-y-variables/" data-via="" data-counturl="http://lsl.xpktro.com//2013/09/10/datos-y-variables/" >Tweet</a>
+  
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2013/09/06/dentro-del-hola-avatar/" title="Previous Post: Lección 1: Hola Avatar, Disecado">&laquo; Lección 1: Hola Avatar, Disecado</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Acerca de...</h1>
+  <img src="/images/avatar.png" class="center">
+  <p><a href="https://my.secondlife.com/tiaeld.tolsen">Tiaeld Tolsen</a> (o <a href="http://www.xpktro.com">la persona detrás de él</a>). Residente desde 2007, Scripter Profesional desde 2010.</p>
+
+  <p>Hice muchas cosas durante mi segunda vida, algo de artes, bastante código y algunas que otras series de clases para hispanohablantes. En algún momento llegué a saberme casi todas la funciones de memoria, pero la Vida Real pudo más. </p>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2013/09/10/datos-y-variables/">Lección 2: Tipos De Datos, Variables Y Constantes</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/09/06/dentro-del-hola-avatar/">Lección 1: Hola Avatar, Disecado</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/09/06/hola-avatar/">Lección 0: Hola Avatar</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/09/03/introduccion-y-requisitos/">Introducción Y Requisitos</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/08/30/hola/">¡Hola, Mundo!</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Tiaeld Tolsen -
+  <span class="credit">Este blog está hecho con <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'tiaeldtolsenyelmetamundo';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://lsl.xpktro.com//2013/09/10/datos-y-variables/';
+        var disqus_url = 'http://lsl.xpktro.com//2013/09/10/datos-y-variables/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id; js.async = true;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
