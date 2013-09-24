@@ -9,6 +9,15 @@ footer: true
 
 Esta sección contendrá los distintos términos utilizados a lo largo del curso y sus respectivos significados, con el objetivo de servir como material de referencia inmediata ante cualquier duda durante la lectura de las lecciones.
 
+
+* **Asignar**: Cambiar el valor de una variable.
+
+* **Concatenación, concatenar**: El acto de generar una cadena siendo el resultado de poner una serie de ellas de forma consecutiva.
+
+* **Constante**: Dato en forma de variable cuyo valor es inalterable.
+
+* **Dato**: Unidad atómica de información, de un tipo específico.
+
 * **Estado**: Agrupación lógica de eventos.
 
 * **Evento**: Ocurrencia específica que puede sucitar una serie de instrucciones.
@@ -27,8 +36,14 @@ Esta sección contendrá los distintos términos utilizados a lo largo del curso
 
 * **Rez, rezear**: El acto de generar uno o más prims en el mundo. Se utiliza coloquialmente para referirse al tiempo de carga de un avatar al entrar a un simulador o al mundo. Viene del término ficticcio **de-rez** originado en la película de ficción **Tron**.
 
+* **Rotación**: Representación del estado de rotación de un objeto.
+
 * **Script**: El conjunto de instrucciones que ha de realizar un objeto ante determinados eventos. Un objeto puede contener varios *scripts* que pueden ser ejecutados de forma simultánea.
 
 * **Simulador**: Espacio virutal (físico para efectos del mundo) donde avatares y objetos pueden existir y/o interactuar.
 
 * **Sintaxis**: Estructura de la escritura de algo, normalmente invariable.
+
+* **Variable**: Lugar en la memoria del script que es propenso a cambiar.
+
+* **Vector**: Para efectos prácticos, la agrupación de tres cantidades decimales.

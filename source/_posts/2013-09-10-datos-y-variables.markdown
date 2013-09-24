@@ -47,6 +47,90 @@ Existe un tipo de dato más adicional muy interesante que es la Lista (`list`), 
 ## Variables y Constantes
 Nos detuvimos un buen tiempo para revisar algunos asuntos teóricos en cuanto al lenguaje se refiere, pero es hora de ver algo un poco más concreto: aprenderemos qué son las variables (y de paso las constantes).
 
+
+### Variables
 Si el lector recuerda alguna de sus clases de matemáticas en la escuela o similares, recordará haber escuchado el término **variable** en algún momento. Análogamente al concepto *matemático* de una variable, en términos de *scripting*, una variable es *algo* que es bastante propenso a cambiar, pero que recibe un nombre para referirnos a ello en cualquier momento, independientemente de si ha cambiado o no.
 
--> Probando texto centrado <-
+Por ejemplo, si visitó algún centro comercial con sus amigos y cada uno de ustedes recibió un mensaje de bienvenida automático, pero personalizado conteniendo cada uno de sus nombres, podremos decir que el mensaje en cuestión es constante, pero que algunas partes de él como el nombre que se muestra es parte de una variable. Podemos ver también algo de esto en las jarras de propinas, que tienen un contador *variable* del dinero que ha sido donado hasta el momento y el nombre de la persona que hizo la última donación.
+
+Podemos también pensar en las variables como parte del *cerebro* del script, siendo aquellos lugares en donde podemos almacenar información de forma permanente hasta que algo o alguien decida cambiar sus contenidos.
+
+En efectos prácticos, podemos definir una variable utilizando la siguiente sintaxis:
+
+```
+tipo nombre[ = valor];
+```
+
+Todo aquello encerrado entre corchetes es de escritura opcional. Esto quiere decir, refiriéndonos al caso de las variables, que podemos crearlas y asignarles un valor de manera inmediata, esto es particularmente útil para cuando necesitemos definir algunos valores que se repetirán mucho a lo largo del *script* o que queremos que los usuarios del *script* puedan *configurar* estos parámetros a su gusto sin tener que alterar nada más que esas líneas iniciales. Volviendo al `tipo`: toda variable debe de especificarse con el tipo de dato que esta contendrá, si tratamos con una cadena, el tipo será `string`, o si es un número entero `integer`, para los demás tipos de datos, sus nombres están escritos entre paréntesis en cada título de esta lección.
+
+Veamos un ejemplo práctico del uso de las variables en nuestro primer script, el Hola Avatar:
+
+```lsl
+string nombre = "Tiaeld Tolsen";
+
+default {
+    state_entry() {
+        llSay(0, "¡Hola, " + nombre + "!");
+    }
+
+    touch_start(integer total_number) {
+        llSay(0, "Tocaste el prim de " + nombre);
+    }
+}
+```
+Notarán cómo utilizo el operador de suma `+` para *unir* una cadena a una variable. Este procedimiento, cuando se trata de dos o más cadenas, recibe el nombre de *concatenación*. Así que cada vez que querramos coser un `string` con otro, simplemente utilizamos `+`. Noten también que esta *concatenación* se hace *tal cual*, por lo que habrán que agregar los espacios que hagan falta para producir una oración correctamente escrita si se desea.
+
+También podemos hacer operaciones utilizando variables, por ejemplo:
+
+```lsl
+string nombre = "Tiaeld";
+string apellido = "Tolsen";
+integer veces;
+
+default {
+    state_entry() {
+        string nombre_completo = nombre + " " + apellido;
+        llSay(0, "Este es el prim de " + nombre_completo);
+    }
+
+    touch_start(integer total_number) {
+        veces = veces + 1;
+        llSay(0, "Tocaste este prim " + veces + " veces.");
+    }
+}
+```
+
+Introduje un par de nuevas cosas de manera sutil en este script que imagino se habrán dado cuenta:
+
+- Se pueden crear variables tant *fuera* de los estados como *dentro* de los eventos. El único lugar en donde no podemos crear variables es dentro de un estado (no de un evento, si no sólamente dentro de un estado).
+- Una vez que una variable es definida, podemos cambiar su valor llamándola sólamente por su nombre las veces siguientes, como es el caso de `veces`.
+- Podemos utilizar el mismo valor de la variable para volver a definir su valor. No habrá ningún problema con esto ya que **las operaciones se ejecutan antes** de asignar valores a variables.
+
+El lector podrá preguntarse si, en el ejemplo anterior, `nombre_completo` podrá ser utilizado en veces posteriores (como por ejemplo, en `touch_start`), la respuesta es **no**, **una variable definida dentro de un bloque de código (como un evento) no será *visible* fuera de este**. Si intenta referirse a `nombre_completo` desde `touch_start` obtendrá una alerta del editor de *scripts* que le impedirá continuar.
+
+De esta misma forma, las variables que se definan antes de los estados, podrán utilizarse a lo largo de todo el script, y normalmente se las llama ***variables globales*** por este motivo.
+
+¿Y si `veces` jamás obtuvo un valor al ser definida, cómo puede funcionar nuestro *script*? Sucede que todas las variables, al no definirlas con un valor específico, son *creadas* con un valor por defecto. Concretamente, los valores por defecto de todos los tipos de datos se encuentran en la siguiente tabla:
+
+| Tipo       | Valor              |
+| ---------- | ------------------ |
+| `integer`  | `0`
+| `float`    | `0.`
+| `string`   | `""`
+| `vector`   | `<0., 0., 0.>`
+| `rotation` | `<0., 0., 0., 1.>`
+| `key`      | `""`
+| `list`     | `[]`
+
+Y para finalizar nuestra lección, veremos un último ejemplo mucho más completo, y con más cosas nuevas que serán explicadas a continuación:
+
+{% include_code Ejemplo Completo de Variables/Constantes variables_constantes.lsl %}
+
+- *¿Podemos asignar una función a una variable?* En realidad estamos asignando el **resultado** de la función a la variable. **Algunas funciones producen un dato tras ser *invocadas.*** En este caso `llGetKey()` produce el key del prim donde se encuentra el script actualmente.
+- Ya que nuestra variable `prim` es del tipo `key`, y por lo visto anteriormente, `llSay` acepta sólamente datos del tipo `string`, se tiene que realizar una ***conversión***, convertir un dato de un tipo a otro es tan sencillo como **encerrar entre paréntesis el tipo de dato al que queremos transformar nuestro valor actual**. En este caso, transformamos a `prim` de `key` a `string`.
+- `llSetColor` es una función nueva para nosotros, y como su nombre lo indica, cambia el color del cual está pintado el prim que contiene el script. Sin embargo, se requieren dos datos para su correcta ejecución: el color y la cara a pintar. Vemos que alimentamos a `llSetColor` con nuestra variable de tipo `vector`, esto es debido a que el color en términos de *scripting* se representa siempre de esta forma, siendo **cada uno de los números decimales correspondiente a la cantidad de color Rojo, Verde y Azul del color a representar, variando desde 0.0 a 1.0**, el lector tiene como ejercicio variar estos valores a gusto para obtener colores distintos. Para finalizar, el otro dato necesario es un número entero que puede variar desde `0` hasta el número de caras que tenga el prim, o la *constante* `ALL_SIDES`, que explicaremos a continuación.
+- Las *variables* (a primera vista) `ZERO_ROTATION` y `ALL_SIDES` son lo que llamamos **constantes**. **Una constante es, sencillamente, una variable cuya valor jamás cambiará**, el lenguaje de *scripting* tiene una extensa lista de constantes de distintos tipos que tienen diversas utilidades. Concretamente, `ZERO_ROTATION` representa una rotación *nula*, y `ALL_SIDES` se usa junto con `llSetColor` para indicar que se habrán de *pintar* todas las caras del prim.
+- `llSleep` tiene como propósito *pausar* al script por cierta cantidad de tiempo, que justamente es el único dato que necesita para funcionar y que necesariamente tiene que ser de tipo `float`. Notarán que una vez se ha hecho click al *prim*, habrá una pausa de un segundo y medio antes de ejecutar la siguiente acción.
+- `llSetRot` cambia la rotación del prim respecto al mundo. Si no rotamos al prim que contiene este script manualmente, no se observará el efecto, de otra forma, le veremos regresar a su posición *inicial*. Como se observa, sólo necesita como dato la rotación a aplicarse sobre el prim.
+
+Y esta sería toda la lección. No se olviden de formular sin tapujo alguno todo tipo de aclaración, sugerencia, duda, corrección o comentario que crean conveniente. Haremos cosas mucho menos pesadas y más divertidas de ahora en adelante.
