@@ -4,7 +4,7 @@
   <title><![CDATA[Tiaeld Tolsen y el (meta)mundo.]]></title>
   <link href="http://lsl.xpktro.com//atom.xml" rel="self"/>
   <link href="http://lsl.xpktro.com//"/>
-  <updated>2013-09-25T15:17:15-05:00</updated>
+  <updated>2013-09-25T15:27:47-05:00</updated>
   <id>http://lsl.xpktro.com//</id>
   <author>
     <name><![CDATA[Tiaeld Tolsen]]></name>
@@ -387,7 +387,7 @@ Muchas de las funciones que estudiaremos, o m√°s concretamente, muchas de las m√
 </span><span class='line'>
 </span><span class='line'><span class="w">    </span><span class="go">touch_start</span><span class="p">(</span><span class="ni">integer</span><span class="x"> </span><span class="n">total_number</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span class='line'><span class="w">        </span><span class="n">veces</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">veces</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
-</span><span class='line'><span class="w">        </span><span class="nb">llSay</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Tocaste este prim &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">veces</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; veces.&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="w">        </span><span class="nb">llSay</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Tocaste este prim &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">string</span><span class="p">)</span><span class="n">veces</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; veces.&quot;</span><span class="p">);</span>
 </span><span class='line'><span class="w">    </span><span class="p">}</span>
 </span><span class='line'><span class="p">}</span>
 </span></code></pre></td></tr></table></div></figure>
