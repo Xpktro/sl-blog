@@ -1,0 +1,508 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>llSetAnimationOverride - Tiaeld Tolsen y el (meta)mundo.</title>
+  <meta name="author" content="Tiaeld Tolsen">
+
+  
+  <meta name="description" content="Utilizaremos la función llSetAnimationOverride para fabricarnos un AO de forma fácil. Pon el siguiente script y tus animaciones dentro de un prim. &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://lsl.xpktro.com//2013/09/25/llsetanimationoverride">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Tiaeld Tolsen y el (meta)mundo." type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-43825060-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Tiaeld Tolsen y el (meta)mundo.</a></h1>
+  
+    <h2>Apuntes potencialmente interesantes para los residentes de Second Life.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:lsl.xpktro.com/" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Inicio</a></li>
+  <li><a href="/blog/archives">Archivo</a></li>
+  <li><a href="/indice">Índice</a></li>
+  <li><a href="/glosario">Glosario</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">llSetAnimationOverride</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-09-25T02:54:00-05:00" pubdate data-updated="true">25 de septiembre del 2013</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Utilizaremos la función <a href="http://wiki.secondlife.com/wiki/LlSetAnimationOverride">llSetAnimationOverride</a> para fabricarnos un AO de forma fácil.</p>
+
+<ol>
+<li>Pon el siguiente script y tus animaciones dentro de un prim.</li>
+<li>Edita los nombres de las animaciones del script y cámbialos a los nombres de tus animaciones.</li>
+<li>Vístete el prim en tu avatar.</li>
+</ol>
+
+
+<!-- more -->
+
+
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+</pre></td><td class='code'><pre><code class='lsl'><span class='line'><span class="c-Singleline">// Override the Sit, Stand and Walk animations</span>
+</span><span class='line'><span class="c-Singleline">// 1. place this script and your animations in a prim</span>
+</span><span class='line'><span class="c-Singleline">// 2. edit the animation names in the script to your animation&#39;s names</span>
+</span><span class='line'><span class="c-Singleline">// 3. attach the prim to your avatar</span>
+</span><span class='line'><span class="w"> </span>
+</span><span class='line'><span class="ni">string</span><span class="x"> </span><span class="n">gMySit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;chop_sit&quot;</span><span class="p">;</span>
+</span><span class='line'><span class="ni">string</span><span class="x"> </span><span class="n">gMyStand</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;FStand _02&quot;</span><span class="p">;</span>
+</span><span class='line'><span class="ni">string</span><span class="x"> </span><span class="n">gMyWalk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Kort gang F v4.1&quot;</span><span class="p">;</span>
+</span><span class='line'><span class="w"> </span>
+</span><span class='line'><span class="kd">default</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'><span class="w">    </span><span class="go">attach</span><span class="p">(</span><span class="ni">key</span><span class="x"> </span><span class="n">id</span><span class="p">)</span>
+</span><span class='line'><span class="w">    </span><span class="p">{</span>
+</span><span class='line'><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="nb">llRequestPermissions</span><span class="p">(</span><span class="n">id</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">PERMISSION_OVERRIDE_ANIMATIONS</span><span class="p">);</span>
+</span><span class='line'><span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="nb">llGetPermissions</span><span class="p">()</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">PERMISSION_OVERRIDE_ANIMATIONS</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">llResetAnimationOverride</span><span class="p">(</span><span class="s">&quot;ALL&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="w">    </span><span class="p">}</span>
+</span><span class='line'><span class="w">    </span><span class="go">run_time_permissions</span><span class="p">(</span><span class="ni">integer</span><span class="x"> </span><span class="n">perms</span><span class="p">)</span>
+</span><span class='line'><span class="w">    </span><span class="p">{</span>
+</span><span class='line'><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">perms</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">PERMISSION_OVERRIDE_ANIMATIONS</span><span class="w"> </span><span class="p">)</span>
+</span><span class='line'><span class="w">        </span><span class="p">{</span>
+</span><span class='line'><span class="w">            </span><span class="n">llSetAnimationOverride</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;Sitting&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">gMySit</span><span class="p">);</span>
+</span><span class='line'><span class="w">            </span><span class="n">llSetAnimationOverride</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;Standing&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">gMyStand</span><span class="p">);</span>
+</span><span class='line'><span class="w">            </span><span class="n">llSetAnimationOverride</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;Walking&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">gMyWalk</span><span class="p">);</span>
+</span><span class='line'><span class="w">        </span><span class="p">}</span>
+</span><span class='line'><span class="w">    </span><span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>INSTRUCCIONES</p>
+
+<p>Expliquemos como extender este script con un ejemplo. En el código se muestra esta sentencia:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='lsl'><span class='line'><span class="n">llSetAnimationOverride</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;Sitting&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">gMySit</span><span class="p">);</span><span class="w"> </span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Quiere decir que cuando el avatar esté <code>"Sitting"</code> (Sentado), la animación que se reproduce es gMySit definida previamente en la línea 5:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='lsl'><span class='line'><span class="ni">string</span><span class="x"> </span><span class="n">gMySit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;chop_sit&quot;</span><span class="p">;</span><span class="w"> </span><span class="n">donde</span><span class="w"> </span><span class="n">gMySit</span><span class="w"> </span><span class="n">toma</span><span class="w"> </span><span class="n">el</span><span class="w"> </span><span class="n">valor</span><span class="w"> </span><span class="s">&quot;chop_sit&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>No es necesario definir una variable global como en el script del ejemplo. Podemos omitir las líneas 5, 6 y 7 e introducir el nombre de la animación diréctamente como se mostrará en los ejemplos a continuación descritos.</p>
+
+<p>Ahora explicaremos cómo ejecutar el resto de animaciones al igual que hacen otros AOs comerciales.</p>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Valor</th>
+<th>                                           Descripción</th>
+<th>                                     Ejemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>&ldquo;Crouching&rdquo;                                     </td>
+<td>Mientras el avatar se agacha                    </td>
+<td>llSetAnimationOverride( &ldquo;Crouching&rdquo;, &ldquo;animacion_agachado&rdquo;); </td>
+</tr>
+<tr>
+<td></td>
+<td>&ldquo;CrouchWalking&rdquo;                                 </td>
+<td>Agachado y caminando                            </td>
+<td>llSetAnimationOverride( &ldquo;CrouchWalking&rdquo;, &ldquo;animacion_agachado_caminando&rdquo;); </td>
+</tr>
+<tr>
+<td></td>
+<td>&ldquo;Falling Down&rdquo;                                  </td>
+<td>Cayendo                                         </td>
+<td>llSetAnimationOverride( &ldquo;Falling Down&rdquo;, &ldquo;animacion_agachado_caminando&rdquo;);</td>
+</tr>
+<tr>
+<td></td>
+<td>&ldquo;Flying&rdquo;                                        </td>
+<td>Volando                                         </td>
+<td>llSetAnimationOverride( &ldquo;Flying&rdquo;, &ldquo;animacion_volando&rdquo;);</td>
+</tr>
+<tr>
+<td></td>
+<td>&ldquo;FlyingSlow&rdquo;                                    </td>
+<td>Volando despacio                                </td>
+<td>llSetAnimationOverride( &ldquo;FlyingSlow&rdquo;, &ldquo;animacion_volando_despacio&rdquo;);</td>
+</tr>
+<tr>
+<td></td>
+<td>&ldquo;Hovering&rdquo;                                      </td>
+<td>Flotando                                                   </td>
+<td>llSetAnimationOverride( &ldquo;Hovering&rdquo;, &ldquo;animacion_flotando&rdquo;);</td>
+</tr>
+<tr>
+<td></td>
+<td>&ldquo;Hovering Down&rdquo;                                 </td>
+<td>Flotando hacia abajo                                           </td>
+<td>llSetAnimationOverride( &ldquo;Hovering Down&rdquo;, &ldquo;animacion_flotando_abajo&rdquo;);</td>
+</tr>
+<tr>
+<td></td>
+<td>&ldquo;Hovering Up&rdquo;                                   </td>
+<td>Flotando hacia arriba                                        </td>
+<td>llSetAnimationOverride( &ldquo;Hovering Up&rdquo;, &ldquo;animacion_flotando_arriba&rdquo;); </td>
+</tr>
+<tr>
+<td></td>
+<td>&ldquo;Jumping&rdquo;                                       </td>
+<td>Mientras estas en el aire durante un salto                  </td>
+<td>llSetAnimationOverride(&ldquo;Jumping&rdquo;, &ldquo;animacion_saltando&rdquo;); </td>
+</tr>
+<tr>
+<td></td>
+<td>&ldquo;Landing&rdquo;                                       </td>
+<td>Aterrizando despues de un salto                           </td>
+<td>llSetAnimationOverride( &ldquo;Landing&rdquo;, &ldquo;animacion_aterrizando&rdquo;); </td>
+</tr>
+<tr>
+<td></td>
+<td>&ldquo;PreJumping&rdquo;                                    </td>
+<td>En el inicio de un salto.                                   </td>
+<td>llSetAnimationOverride( &ldquo;PreJumping&rdquo;, &ldquo;animacion_pre-salto&rdquo;); </td>
+</tr>
+<tr>
+<td></td>
+<td>&ldquo;Running&rdquo;                                       </td>
+<td>Corriendo                                                 </td>
+<td>llSetAnimationOverride( &ldquo;Running&rdquo;, &ldquo;animacion_corriendo&rdquo;); </td>
+</tr>
+<tr>
+<td></td>
+<td>&ldquo;Sitting&rdquo;                                       </td>
+<td>Sentandose en un objeto                                 </td>
+<td>llSetAnimationOverride( &ldquo;Sitting&rdquo;, &ldquo;animacion_sentado&rdquo;); </td>
+</tr>
+<tr>
+<td></td>
+<td>&ldquo;Sitting on Ground&rdquo;                             </td>
+<td>Sentandose en el suelo                                         </td>
+<td>llSetAnimationOverride( &ldquo;Sitting on Ground&rdquo;, &ldquo;animacion_sentado_suelo&rdquo;); </td>
+</tr>
+<tr>
+<td></td>
+<td>&ldquo;Standing&rdquo;                                      </td>
+<td>De pie parado                                              </td>
+<td>llSetAnimationOverride( &ldquo;Standing&rdquo;, &ldquo;animacion_de_pie&rdquo;); </td>
+</tr>
+<tr>
+<td></td>
+<td>&ldquo;Standing Up&rdquo;                                   </td>
+<td>Despues de caer a lo largo de una gran distancia            </td>
+<td>llSetAnimationOverride( &ldquo;Standing Up&rdquo;, &ldquo;animacion_levantandose&rdquo;); </td>
+</tr>
+<tr>
+<td></td>
+<td>&ldquo;Striding&rdquo;                                      </td>
+<td>Cuando el avatar está atascado en el filo de un objeto ó encima de otro avatar </td>
+<td>llSetAnimationOverride( &ldquo;Striding&rdquo;, &ldquo;animacion_equilibrandose&rdquo;);                </td>
+</tr>
+<tr>
+<td></td>
+<td>&ldquo;Soft Landing&rdquo;                                  </td>
+<td>Despues de caer una pequeña distáncia                         </td>
+<td>llSetAnimationOverride( &ldquo;Soft Landing&rdquo;, &ldquo;animacion_caida&rdquo;); .    </td>
+</tr>
+<tr>
+<td></td>
+<td>&ldquo;Taking Off&rdquo;                                    </td>
+<td>Despegando                                                </td>
+<td>llSetAnimationOverride( &ldquo;Taking Off&rdquo;, &ldquo;animacion_despegando&rdquo;); </td>
+</tr>
+<tr>
+<td></td>
+<td>&ldquo;Turning Left&rdquo;                                  </td>
+<td>Girando a la izquierda                                    </td>
+<td>llSetAnimationOverride( &ldquo;Turning Left&rdquo;, &ldquo;animacion_girando_izquierda&rdquo;); </td>
+</tr>
+<tr>
+<td></td>
+<td>&ldquo;Turning Right&rdquo;                                 </td>
+<td>Girando a la derecha                                       </td>
+<td>llSetAnimationOverride( &ldquo;Turning Right&rdquo;, &ldquo;animacion_girando_derecha&rdquo;); </td>
+</tr>
+<tr>
+<td></td>
+<td>&ldquo;Walking&rdquo;                                       </td>
+<td>Caminando                                                </td>
+<td>llSetAnimationOverride( &ldquo;Walking&rdquo;, &ldquo;animacion_caminando&rdquo;); </td>
+</tr>
+</tbody>
+</table>
+
+
+<p>NOTA ACLARATORIA: El primer parámetro de la función llSetAnimationOverride es un Valor (circunstancia) de la tabla anterior. El segundo parámetro es el nombre de la animación a ejecutar cuando dicha circunstancia se produzca.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Robe Jameson</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-09-25T02:54:00-05:00" pubdate data-updated="true">25 de septiembre del 2013</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='//categories/funciones/'>Funciones</a>, <a class='category' href='//categories/lsl/'>LSL</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://lsl.xpktro.com//2013/09/25/llsetanimationoverride/" data-via="" data-counturl="http://lsl.xpktro.com//2013/09/25/llsetanimationoverride/" >Tweet</a>
+  
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2013/09/10/datos-y-variables/" title="Previous Post: Lección 2: Tipos de Datos, Variables y Constantes">&laquo; Lección 2: Tipos de Datos, Variables y Constantes</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Acerca de...</h1>
+  <img src="/images/avatar.png" class="center">
+  <p><a href="https://my.secondlife.com/tiaeld.tolsen">Tiaeld Tolsen</a> (o <a href="http://www.xpktro.com">la persona detrás de él</a>). Residente desde 2007, Scripter Profesional desde 2010.</p>
+
+  <p>Hice muchas cosas durante mi segunda vida, algo de artes, bastante código y algunas que otras series de clases para hispanohablantes. En algún momento llegué a saberme casi todas la funciones de memoria, pero la Vida Real pudo más. </p>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2013/09/25/llsetanimationoverride/">llSetAnimationOverride</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/09/10/datos-y-variables/">Lección 2: Tipos De Datos, Variables Y Constantes</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/09/06/dentro-del-hola-avatar/">Lección 1: Hola Avatar, Disecado</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/09/06/hola-avatar/">Lección 0: Hola Avatar</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/09/03/introduccion-y-requisitos/">Introducción Y Requisitos</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Tiaeld Tolsen -
+  <span class="credit">Este blog está hecho con <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'tiaeldtolsenyelmetamundo';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://lsl.xpktro.com//2013/09/25/llsetanimationoverride/';
+        var disqus_url = 'http://lsl.xpktro.com//2013/09/25/llsetanimationoverride/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id; js.async = true;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
