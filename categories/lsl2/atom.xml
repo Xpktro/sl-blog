@@ -4,7 +4,7 @@
   <title><![CDATA[Category: LSL2 | Tiaeld Tolsen y el (meta)mundo.]]></title>
   <link href="http://lsl.xpktro.com///categories/lsl2/atom.xml" rel="self"/>
   <link href="http://lsl.xpktro.com//"/>
-  <updated>2013-09-24T22:15:27-05:00</updated>
+  <updated>2013-09-25T15:17:15-05:00</updated>
   <id>http://lsl.xpktro.com//</id>
   <author>
     <name><![CDATA[Tiaeld Tolsen]]></name>
@@ -121,7 +121,8 @@ touch_start(integer total_number) {
 <ul>
 <li>Se pueden crear variables tant <em>fuera</em> de los estados como <em>dentro</em> de los eventos. El único lugar en donde no podemos crear variables es dentro de un estado (no de un evento, si no sólamente dentro de un estado).</li>
 <li>Una vez que una variable es definida, podemos cambiar su valor llamándola sólamente por su nombre las veces siguientes, como es el caso de <code>veces</code>.</li>
-<li>Podemos utilizar el mismo valor de la variable para volver a definir su valor. No habrá ningún problema con esto ya que <strong>las operaciones se ejecutan antes</strong> de asignar valores a variables.</li>
+<li>Podemos utilizar valor <em>anterior</em> de la variable para volver a definirla (en el caso de <code>veces</code>). No habrá ningún problema con esto ya que <strong>las operaciones se ejecutan antes</strong> de asignar valores a variables.</li>
+<li>Ya que nuestra variable <code>veces</code> es del tipo <code>integer</code>, y por lo visto anteriormente, <code>llSay</code> acepta sólamente datos del tipo <code>string</code>, se tiene que realizar una <strong><em>conversión</em></strong>, convertir un dato de un tipo a otro es tan sencillo como <strong>encerrar entre paréntesis el tipo de dato al que queremos transformar nuestro valor actual</strong>. En este caso, transformamos a <code>veces</code> de <code>integer</code> a <code>string</code>.</li>
 </ul>
 
 
@@ -220,7 +221,6 @@ touch_start(integer total_number) {
 
 <ul>
 <li><em>¿Podemos asignar una función a una variable?</em> En realidad estamos asignando el <strong>resultado</strong> de la función a la variable. <strong>Algunas funciones producen un dato tras ser <em>invocadas.</em></strong> En este caso <code>llGetKey()</code> produce el key del prim donde se encuentra el script actualmente.</li>
-<li>Ya que nuestra variable <code>prim</code> es del tipo <code>key</code>, y por lo visto anteriormente, <code>llSay</code> acepta sólamente datos del tipo <code>string</code>, se tiene que realizar una <strong><em>conversión</em></strong>, convertir un dato de un tipo a otro es tan sencillo como <strong>encerrar entre paréntesis el tipo de dato al que queremos transformar nuestro valor actual</strong>. En este caso, transformamos a <code>prim</code> de <code>key</code> a <code>string</code>.</li>
 <li><code>llSetColor</code> es una función nueva para nosotros, y como su nombre lo indica, cambia el color del cual está pintado el prim que contiene el script. Sin embargo, se requieren dos datos para su correcta ejecución: el color y la cara a pintar. Vemos que alimentamos a <code>llSetColor</code> con nuestra variable de tipo <code>vector</code>, esto es debido a que el color en términos de <em>scripting</em> se representa siempre de esta forma, siendo <strong>cada uno de los números decimales correspondiente a la cantidad de color Rojo, Verde y Azul del color a representar, variando desde 0.0 a 1.0</strong>, el lector tiene como ejercicio variar estos valores a gusto para obtener colores distintos. Para finalizar, el otro dato necesario es un número entero que puede variar desde <code>0</code> hasta el número de caras que tenga el prim, o la <em>constante</em> <code>ALL_SIDES</code>, que explicaremos a continuación.</li>
 <li>Las <em>variables</em> (a primera vista) <code>ZERO_ROTATION</code> y <code>ALL_SIDES</code> son lo que llamamos <strong>constantes</strong>. <strong>Una constante es, sencillamente, una variable cuya valor jamás cambiará</strong>, el lenguaje de <em>scripting</em> tiene una extensa lista de constantes de distintos tipos que tienen diversas utilidades. Concretamente, <code>ZERO_ROTATION</code> representa una rotación <em>nula</em>, y <code>ALL_SIDES</code> se usa junto con <code>llSetColor</code> para indicar que se habrán de <em>pintar</em> todas las caras del prim.</li>
 <li><code>llSleep</code> tiene como propósito <em>pausar</em> al script por cierta cantidad de tiempo, que justamente es el único dato que necesita para funcionar y que necesariamente tiene que ser de tipo <code>float</code>. Notarán que una vez se ha hecho click al <em>prim</em>, habrá una pausa de un segundo y medio antes de ejecutar la siguiente acción.</li>
