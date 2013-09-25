@@ -4,7 +4,7 @@
   <title><![CDATA[Category: LSL | Tiaeld Tolsen y el (meta)mundo.]]></title>
   <link href="http://lsl.xpktro.com///categories/lsl/atom.xml" rel="self"/>
   <link href="http://lsl.xpktro.com//"/>
-  <updated>2013-09-24T20:30:05-05:00</updated>
+  <updated>2013-09-24T22:15:27-05:00</updated>
   <id>http://lsl.xpktro.com//</id>
   <author>
     <name><![CDATA[Tiaeld Tolsen]]></name>
@@ -18,16 +18,18 @@
     <link href="http://lsl.xpktro.com//2013/09/25/llsetanimationoverride/"/>
     <updated>2013-09-25T02:54:00-05:00</updated>
     <id>http://lsl.xpktro.com//2013/09/25/llsetanimationoverride</id>
-    <content type="html"><![CDATA[<p>Utilizaremos la función <a href="http://wiki.secondlife.com/wiki/LlSetAnimationOverride">llSetAnimationOverride</a> para fabricarnos un AO de forma fácil.</p>
+    <content type="html"><![CDATA[<p>De parte de nuestro colaborador <em>Robe Jameson</em>, tenemos un pequeño artículo acerca del uso de la función <code>llSetAnimationOverride</code>.</p>
+
+<!-- more -->
+
+
+<p>Utilizaremos la función <a href="http://wiki.secondlife.com/wiki/LlSetAnimationOverride"><code>llSetAnimationOverride</code></a> para fabricarnos un AO de forma fácil.</p>
 
 <ol>
 <li>Pon el siguiente script y tus animaciones dentro de un prim.</li>
 <li>Edita los nombres de las animaciones del script y cámbialos a los nombres de tus animaciones.</li>
-<li>Vístete el prim en tu avatar.</li>
+<li>Vístete el prim.</li>
 </ol>
-
-
-<!-- more -->
 
 
 <p>```lsl
@@ -62,17 +64,21 @@ run_time_permissions(integer perms)
 <p>}
 ```</p>
 
-<p>INSTRUCCIONES</p>
+<h3>Instrucciones</h3>
 
-<p>Expliquemos como extender este script con un ejemplo. En el código se muestra esta sentencia:
-<code>lsl
-llSetAnimationOverride( "Sitting", gMySit);
+<p>Expliquemos como extender este script con un ejemplo. En el código se muestra esta sentencia:</p>
+
+<p><code>lsl
+llSetAnimationOverride("Sitting", gMySit);
 </code>
-Quiere decir que cuando el avatar esté <code>"Sitting"</code> (Sentado), la animación que se reproduce es gMySit definida previamente en la línea 5:
-<code>lsl
-string gMySit = "chop_sit"; donde gMySit toma el valor "chop_sit"
+Quiere decir que cuando el avatar esté <code>"Sitting"</code> (Sentado), la animación que se reproduce es <code>gMySit</code> definida previamente en la línea 5:</p>
+
+<p><code>lsl
+string gMySit = "chop_sit";
 </code>
-No es necesario definir una variable global como en el script del ejemplo. Podemos omitir las líneas 5, 6 y 7 e introducir el nombre de la animación diréctamente como se mostrará en los ejemplos a continuación descritos.</p>
+Donde <code>gMySit</code> toma el valor <code>"chop_sit"</code>.</p>
+
+<p>No es necesario definir una <em>variable global</em> como en el script del ejemplo. Podemos omitir las líneas 5, 6 y 7 e introducir el nombre de la animación directamente como se mostrará en los ejemplos a continuación descritos.</p>
 
 <p>Ahora explicaremos cómo ejecutar el resto de animaciones al igual que hacen otros AOs comerciales.</p>
 
@@ -80,149 +86,149 @@ No es necesario definir una variable global como en el script del ejemplo. Podem
 <thead>
 <tr>
 <th></th>
-<th>Valor</th>
-<th>                                           Descripción</th>
-<th>                                     Ejemplo</th>
+<th> Valor                 </th>
+<th> Descripción                                                                    </th>
+<th> Ejemplo                                                                     </th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td></td>
-<td>&ldquo;Crouching&rdquo;                                     </td>
-<td>Mientras el avatar se agacha                    </td>
-<td>llSetAnimationOverride( &ldquo;Crouching&rdquo;, &ldquo;animacion_agachado&rdquo;); </td>
+<td> <code>"Crouching"</code>         </td>
+<td> Mientras el avatar se agacha                                                   </td>
+<td> <code>llSetAnimationOverride("Crouching", "animacion_agachado");</code></td>
 </tr>
 <tr>
 <td></td>
-<td>&ldquo;CrouchWalking&rdquo;                                 </td>
-<td>Agachado y caminando                            </td>
-<td>llSetAnimationOverride( &ldquo;CrouchWalking&rdquo;, &ldquo;animacion_agachado_caminando&rdquo;); </td>
+<td> <code>"CrouchWalking"</code>     </td>
+<td> Agachado y caminando                                                           </td>
+<td> <code>llSetAnimationOverride("CrouchWalking", "animacion_agachado_caminando");</code></td>
 </tr>
 <tr>
 <td></td>
-<td>&ldquo;Falling Down&rdquo;                                  </td>
-<td>Cayendo                                         </td>
-<td>llSetAnimationOverride( &ldquo;Falling Down&rdquo;, &ldquo;animacion_agachado_caminando&rdquo;);</td>
+<td> <code>"Falling Down"</code>      </td>
+<td> Cayendo                                                                        </td>
+<td> <code>llSetAnimationOverride("Falling Down", "animacion_agachado_caminando");</code></td>
 </tr>
 <tr>
 <td></td>
-<td>&ldquo;Flying&rdquo;                                        </td>
-<td>Volando                                         </td>
-<td>llSetAnimationOverride( &ldquo;Flying&rdquo;, &ldquo;animacion_volando&rdquo;);</td>
+<td> <code>"Flying"</code>            </td>
+<td> Volando                                                                        </td>
+<td> <code>llSetAnimationOverride("Flying", "animacion_volando");</code></td>
 </tr>
 <tr>
 <td></td>
-<td>&ldquo;FlyingSlow&rdquo;                                    </td>
-<td>Volando despacio                                </td>
-<td>llSetAnimationOverride( &ldquo;FlyingSlow&rdquo;, &ldquo;animacion_volando_despacio&rdquo;);</td>
+<td> <code>"FlyingSlow"</code>        </td>
+<td> Volando despacio                                                               </td>
+<td> <code>llSetAnimationOverride("FlyingSlow", "animacion_volando_despacio");</code></td>
 </tr>
 <tr>
 <td></td>
-<td>&ldquo;Hovering&rdquo;                                      </td>
-<td>Flotando                                                   </td>
-<td>llSetAnimationOverride( &ldquo;Hovering&rdquo;, &ldquo;animacion_flotando&rdquo;);</td>
+<td> <code>"Hovering"</code>          </td>
+<td> Flotando                                                                       </td>
+<td> <code>llSetAnimationOverride("Hovering", "animacion_flotando");</code></td>
 </tr>
 <tr>
 <td></td>
-<td>&ldquo;Hovering Down&rdquo;                                 </td>
-<td>Flotando hacia abajo                                           </td>
-<td>llSetAnimationOverride( &ldquo;Hovering Down&rdquo;, &ldquo;animacion_flotando_abajo&rdquo;);</td>
+<td> <code>"Hovering Down"</code>     </td>
+<td> Flotando hacia abajo                                                           </td>
+<td> <code>llSetAnimationOverride("Hovering Down", "animacion_flotando_abajo");</code></td>
 </tr>
 <tr>
 <td></td>
-<td>&ldquo;Hovering Up&rdquo;                                   </td>
-<td>Flotando hacia arriba                                        </td>
-<td>llSetAnimationOverride( &ldquo;Hovering Up&rdquo;, &ldquo;animacion_flotando_arriba&rdquo;); </td>
+<td> <code>"Hovering Up"</code>       </td>
+<td> Flotando hacia arriba                                                          </td>
+<td> <code>llSetAnimationOverride("Hovering Up", "animacion_flotando_arriba");</code></td>
 </tr>
 <tr>
 <td></td>
-<td>&ldquo;Jumping&rdquo;                                       </td>
-<td>Mientras estas en el aire durante un salto                  </td>
-<td>llSetAnimationOverride(&ldquo;Jumping&rdquo;, &ldquo;animacion_saltando&rdquo;); </td>
+<td> <code>"Jumping"</code>           </td>
+<td> Mientras estas en el aire durante un salto                                     </td>
+<td> <code>llSetAnimationOverride("Jumping", "animacion_saltando");</code></td>
 </tr>
 <tr>
 <td></td>
-<td>&ldquo;Landing&rdquo;                                       </td>
-<td>Aterrizando despues de un salto                           </td>
-<td>llSetAnimationOverride( &ldquo;Landing&rdquo;, &ldquo;animacion_aterrizando&rdquo;); </td>
+<td> <code>"Landing"</code>           </td>
+<td> Aterrizando despues de un salto                                                </td>
+<td> <code>llSetAnimationOverride("Landing", "animacion_aterrizando");</code></td>
 </tr>
 <tr>
 <td></td>
-<td>&ldquo;PreJumping&rdquo;                                    </td>
-<td>En el inicio de un salto.                                   </td>
-<td>llSetAnimationOverride( &ldquo;PreJumping&rdquo;, &ldquo;animacion_pre-salto&rdquo;); </td>
+<td> <code>"PreJumping"</code>        </td>
+<td> En el inicio de un salto                                                       </td>
+<td> <code>llSetAnimationOverride("PreJumping", "animacion_pre-salto");</code></td>
 </tr>
 <tr>
 <td></td>
-<td>&ldquo;Running&rdquo;                                       </td>
-<td>Corriendo                                                 </td>
-<td>llSetAnimationOverride( &ldquo;Running&rdquo;, &ldquo;animacion_corriendo&rdquo;); </td>
+<td> <code>"Running"</code>           </td>
+<td> Corriendo                                                                      </td>
+<td> <code>llSetAnimationOverride("Running", "animacion_corriendo");</code></td>
 </tr>
 <tr>
 <td></td>
-<td>&ldquo;Sitting&rdquo;                                       </td>
-<td>Sentandose en un objeto                                 </td>
-<td>llSetAnimationOverride( &ldquo;Sitting&rdquo;, &ldquo;animacion_sentado&rdquo;); </td>
+<td> <code>"Sitting"</code>           </td>
+<td> Sentandose en un objeto                                                        </td>
+<td> <code>llSetAnimationOverride("Sitting", "animacion_sentado");</code></td>
 </tr>
 <tr>
 <td></td>
-<td>&ldquo;Sitting on Ground&rdquo;                             </td>
-<td>Sentandose en el suelo                                         </td>
-<td>llSetAnimationOverride( &ldquo;Sitting on Ground&rdquo;, &ldquo;animacion_sentado_suelo&rdquo;); </td>
+<td> <code>"Sitting on Ground"</code> </td>
+<td> Sentandose en el suelo                                                         </td>
+<td> <code>llSetAnimationOverride("Sitting on Ground", "animacion_sentado_suelo");</code></td>
 </tr>
 <tr>
 <td></td>
-<td>&ldquo;Standing&rdquo;                                      </td>
-<td>De pie parado                                              </td>
-<td>llSetAnimationOverride( &ldquo;Standing&rdquo;, &ldquo;animacion_de_pie&rdquo;); </td>
+<td> <code>"Standing"</code>          </td>
+<td> De pie parado                                                                  </td>
+<td> <code>llSetAnimationOverride("Standing", "animacion_de_pie");</code></td>
 </tr>
 <tr>
 <td></td>
-<td>&ldquo;Standing Up&rdquo;                                   </td>
-<td>Despues de caer a lo largo de una gran distancia            </td>
-<td>llSetAnimationOverride( &ldquo;Standing Up&rdquo;, &ldquo;animacion_levantandose&rdquo;); </td>
+<td> <code>"Standing Up"</code>       </td>
+<td> Despues de caer a lo largo de una gran distancia                               </td>
+<td> <code>llSetAnimationOverride("Standing Up", "animacion_levantandose");</code></td>
 </tr>
 <tr>
 <td></td>
-<td>&ldquo;Striding&rdquo;                                      </td>
-<td>Cuando el avatar está atascado en el filo de un objeto ó encima de otro avatar </td>
-<td>llSetAnimationOverride( &ldquo;Striding&rdquo;, &ldquo;animacion_equilibrandose&rdquo;);                </td>
+<td> <code>"Striding"</code>          </td>
+<td> Cuando el avatar está atascado en el filo de un objeto ó encima de otro avatar </td>
+<td> <code>llSetAnimationOverride("Striding", "animacion_equilibrandose");</code></td>
 </tr>
 <tr>
 <td></td>
-<td>&ldquo;Soft Landing&rdquo;                                  </td>
-<td>Despues de caer una pequeña distáncia                         </td>
-<td>llSetAnimationOverride( &ldquo;Soft Landing&rdquo;, &ldquo;animacion_caida&rdquo;); .    </td>
+<td> <code>"Soft Landing"</code>      </td>
+<td> Despues de caer una pequeña distáncia                                          </td>
+<td> <code>llSetAnimationOverride("Soft Landing", "animacion_caida");</code></td>
 </tr>
 <tr>
 <td></td>
-<td>&ldquo;Taking Off&rdquo;                                    </td>
-<td>Despegando                                                </td>
-<td>llSetAnimationOverride( &ldquo;Taking Off&rdquo;, &ldquo;animacion_despegando&rdquo;); </td>
+<td> <code>"Taking Off"</code>        </td>
+<td> Despegando                                                                     </td>
+<td> <code>llSetAnimationOverride("Taking Off", "animacion_despegando");</code></td>
 </tr>
 <tr>
 <td></td>
-<td>&ldquo;Turning Left&rdquo;                                  </td>
-<td>Girando a la izquierda                                    </td>
-<td>llSetAnimationOverride( &ldquo;Turning Left&rdquo;, &ldquo;animacion_girando_izquierda&rdquo;); </td>
+<td> <code>"Turning Left"</code>      </td>
+<td> Girando a la izquierda                                                         </td>
+<td> <code>llSetAnimationOverride("Turning Left", "animacion_girando_izquierda");</code></td>
 </tr>
 <tr>
 <td></td>
-<td>&ldquo;Turning Right&rdquo;                                 </td>
-<td>Girando a la derecha                                       </td>
-<td>llSetAnimationOverride( &ldquo;Turning Right&rdquo;, &ldquo;animacion_girando_derecha&rdquo;); </td>
+<td> <code>"Turning Right"</code>     </td>
+<td> Girando a la derecha                                                           </td>
+<td> <code>llSetAnimationOverride("Turning Right", "animacion_girando_derecha");</code></td>
 </tr>
 <tr>
 <td></td>
-<td>&ldquo;Walking&rdquo;                                       </td>
-<td>Caminando                                                </td>
-<td>llSetAnimationOverride( &ldquo;Walking&rdquo;, &ldquo;animacion_caminando&rdquo;); </td>
+<td> <code>"Walking"</code>           </td>
+<td> Caminando                                                                      </td>
+<td> <code>llSetAnimationOverride("Walking", "animacion_caminando");</code></td>
 </tr>
 </tbody>
 </table>
 
 
-<p>NOTA ACLARATORIA: El primer parámetro de la función llSetAnimationOverride es un Valor (circunstancia) de la tabla anterior. El segundo parámetro es el nombre de la animación a ejecutar cuando dicha circunstancia se produzca.</p>
+<p><strong>Nota Aclaratoria:</strong> El primer parámetro de la función <code>llSetAnimationOverride</code> <strong>es un valor (circunstancia) de la tabla anterior.</strong> El segundo parámetro es <strong>el nombre de la animación</strong> a ejecutar cuando dicha circunstancia se produzca.</p>
 ]]></content>
   </entry>
   
